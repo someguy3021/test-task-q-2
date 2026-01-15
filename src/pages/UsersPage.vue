@@ -74,44 +74,9 @@
         </div>
 
         <!-- Add User Dialog -->
-        <q-dialog v-model="showAddUserDialog" persistent>
-            <q-card style="min-width: 400px">
-                <q-card-section class="row items-center q-pb-none">
-                    <div class="text-h6">{{ $t('pages.UsersPage.addUser') }}</div>
-                    <q-space />
-                    <q-btn icon="close" flat round dense v-close-popup />
-                </q-card-section>
-
-                <q-card-section>
-                    <q-form @submit="handleAddUser" class="q-gutter-md">
-                        <div class="row">
-                            <div class="col-12 col-sm-6">
-                                <q-input v-model="newUser.firstName" :label="$t('pages.UsersPage.firstName')" outlined
-                                    dense :rules="[val => !!val || $t('common.validation.required')]" />
-                            </div>
-
-                            <div class="col-12 col-sm-6">
-                                <q-input v-model="newUser.lastName" :label="$t('pages.UsersPage.lastName')" outlined
-                                    dense :rules="[val => !!val || $t('common.validation.required')]" />
-                            </div>
-                        </div>
-
-                        <q-input v-model.number="newUser.age" type="number" :label="$t('pages.UsersPage.age')" outlined
-                            dense :rules="[val => val >= 0 || $t('common.validation.minAge')]" />
-
-                        <q-input v-model="newUser.email" type="email" :label="$t('pages.UsersPage.email')" outlined
-                            dense :rules="[
-                                val => !!val || $t('common.validation.required'),
-                                val => /.+@.+\..+/.test(val) || $t('common.validation.invalidEmail')
-                            ]" />
-
-                        <div class="row justify-end q-gutter-sm">
-                            <q-btn flat :label="$t('common.cancel')" v-close-popup />
-                            <q-btn color="primary" type="submit" :label="$t('common.add')" />
-                        </div>
-                    </q-form>
-                </q-card-section>
-            </q-card>
+        <q-dialog v-model="showAddUserDialog">
+            <UserForm :model-value="newUser" :title="$t('pages.UsersPage.addUser')" :submit-label="$t('common.add')"
+                @submit="handleAddUser" @cancel="showAddUserDialog = false" @close="showAddUserDialog = false" />
         </q-dialog>
     </q-page>
 </template>
@@ -121,19 +86,20 @@ import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useUsersStore } from 'src/features/users/stores/users-store';
 import UserCard from 'src/features/users/components/UserCard.vue';
+import UserForm from 'src/features/users/components/UserForm.vue';
 import type { User } from 'src/shared/types';
 
 const { t } = useI18n();
 const usersStore = useUsersStore();
 const showAddUserDialog = ref(false);
 
-const newUser = ref<Omit<User, 'id'>>({
+const newUser = {
     firstName: '',
     lastName: '',
     age: 20,
     email: '',
     photo: null,
-});
+};
 
 const sortFieldOptions = computed(() => [
     { label: t('pages.UsersPage.sortByName'), value: 'firstName' },
@@ -149,18 +115,9 @@ const handleSortFieldChange = (field: keyof Omit<User, 'id' | 'photo'>) => {
     usersStore.setSortOption(field);
 };
 
-const handleAddUser = () => {
-    usersStore.addUser(newUser.value);
+const handleAddUser = (userData: Omit<User, 'id'>) => {
+    usersStore.addUser(userData);
     showAddUserDialog.value = false;
-
-    // Reset form
-    newUser.value = {
-        firstName: '',
-        lastName: '',
-        age: 20,
-        email: '',
-        photo: null,
-    };
 };
 </script>
 
