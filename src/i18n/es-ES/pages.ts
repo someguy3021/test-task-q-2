@@ -118,5 +118,10 @@ export default {
         description: 'Uso de componentes Material Design listos para usar'
       }
     ]
+  },
+  ErrorNotFound: {
+    title: '¡Ups! Aquí no hay nada...',
+    message: 'La página que buscas no existe',
+    goHome: 'Ir al inicio'
   }
 } as const

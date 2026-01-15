@@ -118,5 +118,10 @@ export default {
         description: 'Using ready-made Material Design components'
       }
     ]
+  },
+  ErrorNotFound: {
+    title: 'Oops! Nothing here...',
+    message: 'The page you are looking for does not exist',
+    goHome: 'Go Home'
   }
 } as const

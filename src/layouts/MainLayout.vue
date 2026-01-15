@@ -211,6 +211,7 @@ watch(onlySideMenuLinks, (newValue) => {
 
 // Маппинг имен маршрутов на ключи переводов в pages
 const routeToTranslationKey: Record<string, string> = {
+  'mainpage': 'layouts.main_layout.Dashboard',
   'dashboard': 'layouts.main_layout.Dashboard',
   'competitions': 'layouts.main_layout.Competitions',
   'competition-detail': 'layouts.main_layout.CompetitionDetail',
@@ -292,16 +293,6 @@ const sidebarLinks = computed((): NavLink[] => [
     title: t('layouts.main_layout.UsersManagement'),
     icon: 'people',
     linkByName: 'users'
-  },
-  {
-    title: t('layouts.main_layout.OrdersPage'),
-    icon: 'shopping_cart',
-    linkByName: 'orders'
-  },
-  {
-    title: t('layouts.main_layout.Dashboard'),
-    icon: 'dashboard',
-    linkByName: 'dashboard'
   }
 ]);
 

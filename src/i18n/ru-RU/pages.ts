@@ -118,5 +118,10 @@ export default {
         description: 'Использование готовых Material Design компонентов'
       }
     ]
+  },
+  ErrorNotFound: {
+    title: 'Упс! Здесь ничего нет...',
+    message: 'Страница, которую вы ищете, не существует',
+    goHome: 'На главную'
   }
 } as const
