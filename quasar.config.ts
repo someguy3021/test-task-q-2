@@ -125,7 +125,7 @@ export default defineConfig((ctx) => {
     // sourceFiles: {
     //   rootComponent: 'src/App.vue',
     //   router: 'src/router/index',
-      store: 'src/shared/stores/index',
+      //  store: 'src/shared/stores/index', // TODO вдруг перестало работать, оставим как есть тогда
     //   pwaRegisterServiceWorker: 'src-pwa/register-service-worker',
     //   pwaServiceWorker: 'src-pwa/custom-service-worker',
     //   pwaManifestFile: 'src-pwa/manifest.json',
