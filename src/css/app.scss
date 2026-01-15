@@ -127,12 +127,24 @@ input:-webkit-autofill:active {
 /* For Webkit browsers (Chrome, Safari, Edge, Opera) */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none; /* Removes the default appearance */
-  margin: 0; /* Removes the margin in older versions of Chrome */
+  -webkit-appearance: none;
+  /* Removes the default appearance */
+  margin: 0;
+  /* Removes the margin in older versions of Chrome */
 }
 
 /* For Firefox */
 input[type="number"] {
-  -moz-appearance: textfield; /* Keeps it looking like a normal text input */
-  appearance: none; /* Standard property for other modern browsers */
+  -moz-appearance: textfield;
+  /* Keeps it looking like a normal text input */
+  appearance: none;
+  /* Standard property for other modern browsers */
+}
+
+// Это класс общего назначения для q-page, запрещающий скролл (максимальная высота нужна для его родителя)
+.q-page-mobile-noscroll {
+  @media (max-width: $breakpoint-sm) {
+    max-height: 50vh;
+    overflow: hidden;
+  }
 }

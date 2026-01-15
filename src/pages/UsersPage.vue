@@ -1,5 +1,5 @@
 <template>
-    <q-page class="q-pa-md">
+    <q-page class="q-pa-md q-page-mobile-noscroll">
         <!-- Page Header -->
         <div>
             <div class="row items-center justify-between q-mb-xs" v-if="$q.screen.gt.sm">

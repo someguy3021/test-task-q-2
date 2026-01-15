@@ -37,9 +37,9 @@
                         </div>
                         <div class="row items-center">
                             <q-icon name="cake" size="sm" class="q-mr-sm" />
-                            <span class="text-body1">
+                            <span>
                                 {{ $t('components.UserCard.age', { age: user.age }) }}
-                                <q-badge v-if="user.age < 18" color="orange-9" class="q-ml-sm">
+                                <q-badge v-if="user.age < 18" color="orange-9" class="q-ml-sm" style="font-size: 10px;">
                                     {{ $t('components.UserCard.minor') }}
                                 </q-badge>
                             </span>
