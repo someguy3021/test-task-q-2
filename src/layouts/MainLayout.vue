@@ -286,7 +286,7 @@ const sidebarLinks = computed((): NavLink[] => [
   {
     title: t('layouts.main_layout.AboutProject'),
     icon: 'info',
-    linkByName: 'mainpage'
+    link: '/'
   },
   {
     title: t('layouts.main_layout.UsersManagement'),
