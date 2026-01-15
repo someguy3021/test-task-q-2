@@ -115,8 +115,4 @@ const handleFileUpload = (event: Event) => {
         transform: translate(25%, 25%);
     }
 }
-
-.hidden {
-    display: none;
-}
 </style>

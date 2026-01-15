@@ -314,10 +314,6 @@ const features = computed(() => [
 }
 
 // Утилитарные классы для цветов
-.bg-utility {
-    background: var(--q-pageUtility);
-}
-
 .opacity-70 {
     opacity: 0.7;
 }
@@ -380,19 +376,6 @@ const features = computed(() => [
 @media (max-width: 600px) {
     .about-page {
         padding: 16px !important;
-    }
-}
-
-// Анимации
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
 </style>
