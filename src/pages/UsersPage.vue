@@ -132,7 +132,7 @@
 
             <q-virtual-scroll v-if="filteredUsers.length > 0" :items="filteredUsers" :virtual-scroll-item-size="200"
                 class="virtual-scroll-mobile">
-                <template v-slot="{ item: user, index }">
+                <template v-slot="{ item: user }">
                     <UserCard :key="user.id" :user="user" @photo-uploaded="handlePhotoUpload" class="q-mb-sm" />
                 </template>
             </q-virtual-scroll>
