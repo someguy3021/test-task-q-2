@@ -1,76 +1,180 @@
 <template>
     <q-page class="q-pa-md">
         <!-- Page Header -->
-        <div class="row items-center justify-between q-mb-lg">
-            <div class="col-12 col-md-6">
-                <h1 class="text-h4 q-mb-none">{{ $t('pages.UsersPage.title') }}</h1>
-                <p class="text-subtitle1 text-grey-7 q-mt-sm">
-                    {{ $t('pages.UsersPage.subtitle', {
-                        count: usersStore.allUsers.length, filtered: usersStore.users.length
-                    }) }}
-                </p>
-            </div>
+        <div>
+            <div class="row items-center justify-between q-mb-xs" v-if="$q.screen.gt.sm">
+                <div class="col-12 col-md-6">
+                    <h1 class="text-h4 q-mb-none">{{ $t('pages.UsersPage.title') }}</h1>
+                    <p class="text-subtitle1 text-grey-7 q-mt-sm">
+                        {{ $t('pages.UsersPage.subtitle', {
+                            count: usersStore.allUsers.length,
+                            filtered: filteredUsers.length
+                        }) }}
+                    </p>
+                </div>
 
-            <!-- Add User Button -->
-            <div class="col-12 col-md-6 text-right">
-                <q-btn color="primary" icon="person_add" :label="$t('pages.UsersPage.addUser')"
-                    @click="showAddUserDialog = true" />
+                <!-- Add User Button -->
+                <div class="col-12 col-md-6 text-right">
+                    <q-btn color="primary" icon="person_add" :label="$t('pages.UsersPage.addUser')"
+                        @click="showAddUserDialog = true" />
+                </div>
+            </div>
+            <div class="row items-center justify-between q-mb-xs" v-else>
+                <div class="col-10">
+                    <div class="text-subtitle1 q-mb-none">{{ $t('pages.UsersPage.title') }}</div>
+                    <div class="text-grey-7">
+                        {{ $t('pages.UsersPage.subtitle', {
+                            count: usersStore.allUsers.length,
+                            filtered: filteredUsers.length
+                        }) }}
+                    </div>
+                </div>
+
+                <!-- Add User Button -->
+                <div class="col-auto">
+                    <q-btn color="primary" icon="person_add" @click="showAddUserDialog = true" />
+                </div>
             </div>
         </div>
 
-        <!-- Filters and Sort Controls -->
-        <q-card class="q-mb-lg">
-            <q-card-section>
-                <div class="row items-center q-col-gutter-lg">
-                    <!-- Age Filter -->
-                    <div class="col-12 col-sm-auto">
-                        <q-toggle v-model="usersStore.filterAdultsOnly" :label="$t('pages.UsersPage.filterAdults')"
-                            color="primary" />
+        <div v-if="$q.screen.gt.sm">
+            <q-table :rows="filteredUsers" :columns="columns" row-key="id" grid :rows-per-page-options="[8, 16, 24, 36]"
+                :filter="searchFilter" :filter-method="filterMethod" :rows-per-page-label="$t('common.rows_per_page')"
+                :pagination-label="(firstRowIndex: number, endRowIndex: number, totalRowsNumber: number) => {
+                    return `${firstRowIndex}-${endRowIndex} ${$t('common.pagination_label_of')} ${totalRowsNumber}`;
+                }" class="users-table">
+                <template v-slot:top>
+                    <!-- Filters and Sort Controls -->
+                    <q-card class="q-mb-md full-width">
+                        <q-card-section class="flex justify-between">
+                            <div class="row items-center q-col-gutter-lg">
+                                <!-- Age Filter -->
+                                <div class="col-12 col-sm-auto">
+                                    <q-toggle v-model="usersStore.filterAdultsOnly"
+                                        :label="$t('pages.UsersPage.filterAdults')" color="primary" />
+                                </div>
+
+                                <!-- Sort Controls -->
+                                <div class="col-12 col-sm">
+                                    <div class="row items-center q-col-gutter-sm">
+                                        <div class="col-auto">
+                                            <span class="text-body1">{{ $t('pages.UsersPage.sortBy') }}:</span>
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <q-btn-toggle v-model="usersStore.sortOption.field"
+                                                :options="sortFieldOptions" toggle-color="primary"
+                                                @update:model-value="handleSortFieldChange" />
+                                        </div>
+
+                                        <div class="col-auto">
+                                            <q-btn round
+                                                :icon="usersStore.sortOption.direction === 'asc' ? 'arrow_upward' : 'arrow_downward'"
+                                                :color="usersStore.sortOption.direction === 'asc' ? 'primary' : 'secondary'"
+                                                @click="usersStore.toggleSortDirection()">
+                                                <q-tooltip class="bg-primary">
+                                                    {{ $t('pages.UsersPage.toggleSortDirection') }}
+                                                </q-tooltip>
+                                            </q-btn>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <q-input borderless dense debounce="300" v-model="searchFilter"
+                                :placeholder="$t('common.search')" class="search-input" clearable>
+                                <template v-slot:append>
+                                    <q-icon name="search" />
+                                </template>
+                            </q-input>
+                        </q-card-section>
+                    </q-card>
+                </template>
+
+                <template v-slot:item="props">
+                    <div class="q-pa-xs col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <UserCard :user="props.row" @photo-uploaded="handlePhotoUpload" class="user-card-item" />
                     </div>
+                </template>
 
-                    <!-- Sort Controls -->
-                    <div class="col-12 col-sm">
-                        <div class="row items-center q-col-gutter-sm">
-                            <div class="col-auto">
-                                <span class="text-body1">{{ $t('pages.UsersPage.sortBy') }}:</span>
-                            </div>
+                <template v-slot:no-data>
+                    <!-- Empty State -->
+                    <div class="text-center q-py-xl full-width">
+                        <q-icon name="people" size="100px" color="grey-4" class="q-mb-md" />
+                        <h3 class="text-h5 q-mb-sm">{{ $t('pages.UsersPage.noUsers') }}</h3>
+                        <p class="text-body1 text-grey-7 q-mb-lg">
+                            {{ $t('pages.UsersPage.noUsersDescription') }}
+                        </p>
+                        <q-btn color="primary" icon="person_add" :label="$t('pages.UsersPage.addFirstUser')"
+                            @click="showAddUserDialog = true" />
+                    </div>
+                </template>
+            </q-table>
+        </div>
+        <div v-else class="mobile-view">
+            <!-- Search Input for Mobile -->
+            <q-card class="q-mb-md full-width">
+                <q-card-section class="flex justify-between">
+                    <div class="row items-center q-col-gutter-lg">
+                        <!-- Age Filter -->
+                        <div class="col-12 col-sm-auto">
+                            <q-toggle v-model="usersStore.filterAdultsOnly" :label="$t('pages.UsersPage.filterAdults')"
+                                color="primary" />
+                        </div>
 
-                            <div class="col-auto">
-                                <q-btn-toggle v-model="usersStore.sortOption.field" :options="sortFieldOptions"
-                                    toggle-color="primary" @update:model-value="handleSortFieldChange" />
-                            </div>
+                        <!-- Sort Controls -->
+                        <div class="col-12 col-sm">
+                            <div class="row items-center">
+                                <div class="col-auto">
+                                    <span class="text-body1">{{ $t('pages.UsersPage.sortBy') }}:</span>
+                                </div>
 
-                            <div class="col-auto">
-                                <q-btn round
-                                    :icon="usersStore.sortOption.direction === 'asc' ? 'arrow_upward' : 'arrow_downward'"
-                                    :color="usersStore.sortOption.direction === 'asc' ? 'primary' : 'secondary'"
-                                    @click="usersStore.toggleSortDirection()">
-                                    <q-tooltip class="bg-primary">
-                                        {{ $t('pages.UsersPage.toggleSortDirection') }}
-                                    </q-tooltip>
-                                </q-btn>
+                                <div class="col-auto">
+                                    <q-btn-toggle v-model="usersStore.sortOption.field" :options="sortFieldOptions"
+                                        toggle-color="primary" @update:model-value="handleSortFieldChange" dense />
+                                </div>
+
+                                <div class="col-auto">
+                                    <q-btn round
+                                        :icon="usersStore.sortOption.direction === 'asc' ? 'arrow_upward' : 'arrow_downward'"
+                                        :color="usersStore.sortOption.direction === 'asc' ? 'primary' : 'secondary'"
+                                        @click="usersStore.toggleSortDirection()">
+                                        <q-tooltip class="bg-primary">
+                                            {{ $t('pages.UsersPage.toggleSortDirection') }}
+                                        </q-tooltip>
+                                    </q-btn>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <q-btn>Открыть фильтры</q-btn>
+                    <q-input borderless dense debounce="300" v-model="searchFilter" :placeholder="$t('common.search')"
+                        class="search-input" clearable>
+                        <template v-slot:append>
+                            <q-icon name="search" />
+                        </template>
+                    </q-input>
+                </q-card-section>
+            </q-card>
+
+            <q-virtual-scroll v-if="filteredUsers.length > 0" :items="filteredUsers" :virtual-scroll-item-size="200"
+                style="max-height: 300px; overflow-x: hidden">
+                <template v-slot="{ item: user, index }">
+                    <UserCard :key="user.id" :user="user" @photo-uploaded="handlePhotoUpload" class="q-mb-sm" />
+                </template>
+            </q-virtual-scroll>
+
+            <div v-else class="text-center q-py-xl">
+                <div class="text-center q-py-xl">
+                    <q-icon name="people" size="100px" color="grey-4" class="q-mb-md" />
+                    <h3 class="text-h5 q-mb-sm">{{ $t('pages.UsersPage.noUsers') }}</h3>
+                    <p class="text-body1 text-grey-7 q-mb-lg">
+                        {{ $t('pages.UsersPage.noUsersDescription') }}
+                    </p>
+                    <q-btn color="primary" icon="person_add" :label="$t('pages.UsersPage.addFirstUser')"
+                        @click="$emit('add-user')" />
                 </div>
-            </q-card-section>
-        </q-card>
-
-        <!-- Users List -->
-        <div v-if="usersStore.users.length > 0" class="users-list">
-            <UserCard v-for="user in usersStore.users" :key="user.id" :user="user" @photo-uploaded="handlePhotoUpload"
-                class="q-mb-md" />
-        </div>
-
-        <!-- Empty State -->
-        <div v-else class="text-center q-py-xl">
-            <q-icon name="people" size="100px" color="grey-4" class="q-mb-md" />
-            <h3 class="text-h5 q-mb-sm">{{ $t('pages.UsersPage.noUsers') }}</h3>
-            <p class="text-body1 text-grey-7 q-mb-lg">
-                {{ $t('pages.UsersPage.noUsersDescription') }}
-            </p>
-            <q-btn color="primary" icon="person_add" :label="$t('pages.UsersPage.addFirstUser')"
-                @click="showAddUserDialog = true" />
+            </div>
         </div>
 
         <!-- Add User Dialog -->
@@ -88,10 +192,12 @@ import { useUsersStore } from 'src/features/users/stores/users-store';
 import UserCard from 'src/features/users/components/UserCard.vue';
 import UserForm from 'src/features/users/components/UserForm.vue';
 import type { User } from 'src/shared/types';
+import type { QTableProps } from 'quasar';
 
 const { t } = useI18n();
 const usersStore = useUsersStore();
 const showAddUserDialog = ref(false);
+const searchFilter = ref('');
 
 const newUser = {
     firstName: '',
@@ -101,11 +207,42 @@ const newUser = {
     photo: null,
 };
 
+const columns: QTableProps['columns'] = [
+    { name: 'firstName', label: t('components.UserForm.firstName'), field: 'firstName', sortable: true },
+    { name: 'lastName', label: t('components.UserForm.lastName'), field: 'lastName', sortable: true },
+    { name: 'age', label: t('components.UserForm.age'), field: 'age', sortable: true },
+    { name: 'email', label: t('components.UserForm.email'), field: 'email', sortable: true },
+];
+
 const sortFieldOptions = computed(() => [
     { label: t('pages.UsersPage.sortByName'), value: 'firstName' },
     { label: t('pages.UsersPage.sortByAge'), value: 'age' },
     { label: t('pages.UsersPage.sortByEmail'), value: 'email' },
 ]);
+
+const filteredUsers = computed(() => {
+    return usersStore.users.filter(user => {
+        if (!searchFilter.value) return true;
+
+        const searchTerm = searchFilter.value.toLowerCase();
+        return (
+            user.firstName.toLowerCase().includes(searchTerm) ||
+            user.lastName.toLowerCase().includes(searchTerm) ||
+            user.email.toLowerCase().includes(searchTerm) ||
+            user.age.toString().includes(searchTerm)
+        );
+    });
+});
+
+const filterMethod: QTableProps['filterMethod'] = (rows, terms) => {
+    const lowerTerms = terms.toLowerCase();
+    return rows.filter(row =>
+        row.firstName.toLowerCase().includes(lowerTerms) ||
+        row.lastName.toLowerCase().includes(lowerTerms) ||
+        row.email.toLowerCase().includes(lowerTerms) ||
+        row.age.toString().includes(lowerTerms)
+    );
+};
 
 const handlePhotoUpload = (userId: number, photoData: string) => {
     usersStore.updateUserPhoto(userId, photoData);
@@ -122,13 +259,18 @@ const handleAddUser = (userData: Omit<User, 'id'>) => {
 </script>
 
 <style scoped lang="scss">
-.users-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 16px;
-
-    @media (max-width: $breakpoint-sm) {
-        grid-template-columns: 1fr;
+.users-table {
+    :deep(.q-table__top) {
+        padding: 0;
+        border-bottom: none;
     }
+
+    .search-input {
+        width: 200px;
+    }
+}
+
+.user-card-item {
+    height: 100%;
 }
 </style>
