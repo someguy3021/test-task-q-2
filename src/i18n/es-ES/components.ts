@@ -8,7 +8,7 @@ export default {
   AppLanguageSwitch: {
     change_language: 'Cambiar idioma'
   },
-  users: {
+  UserCard: {
     uploadPhoto: 'Subir foto',
     age: '{age} años',
     minor: 'Menor de edad',

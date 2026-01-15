@@ -15,7 +15,7 @@
                     <q-btn round color="secondary" icon="photo_camera" size="sm" class="upload-btn"
                         @click="triggerFileInput">
                         <q-tooltip class="bg-primary">
-                            {{ $t('components.users.uploadPhoto') }}
+                            {{ $t('components.UserCard.uploadPhoto') }}
                         </q-tooltip>
                     </q-btn>
                 </div>
@@ -38,9 +38,9 @@
                         <div class="row items-center">
                             <q-icon name="cake" size="sm" class="q-mr-sm" />
                             <span class="text-body1">
-                                {{ $t('components.users.age', { age: user.age }) }}
+                                {{ $t('components.UserCard.age', { age: user.age }) }}
                                 <q-badge v-if="user.age < 18" color="orange-9" class="q-ml-sm">
-                                    {{ $t('components.users.minor') }}
+                                    {{ $t('components.UserCard.minor') }}
                                 </q-badge>
                             </span>
                         </div>
