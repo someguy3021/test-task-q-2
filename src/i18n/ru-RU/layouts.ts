@@ -14,6 +14,7 @@ export default {
     Inbox: 'Почта',
     Home: 'Главная',
     UsersManagement: 'Пользователи',
+    AboutProject: 'О проекте',
     Settings: {
       title: 'Настройки интерфейса',
       showBottomMenu: 'Показывать нижнее меню',

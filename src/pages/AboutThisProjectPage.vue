@@ -392,27 +392,4 @@ const features = ref([
         transform: translateY(0);
     }
 }
-
-.tech-card,
-.arch-card,
-.stats-card,
-.features-card {
-    animation: fadeIn 0.5s ease forwards;
-}
-
-.tech-card {
-    animation-delay: 0.1s;
-}
-
-.arch-card {
-    animation-delay: 0.2s;
-}
-
-.stats-card {
-    animation-delay: 0.3s;
-}
-
-.features-card {
-    animation-delay: 0.4s;
-}
 </style>

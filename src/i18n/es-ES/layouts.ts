@@ -15,6 +15,7 @@ export default {
     Inbox: 'Buzón',
     Home: 'Inicio',
     UsersManagement: 'Usuarios',
+    AboutProject: 'Sobre el proyecto',
     Settings: {
       title: 'Configuración de interfaz',
       showBottomMenu: 'Mostrar menú inferior',

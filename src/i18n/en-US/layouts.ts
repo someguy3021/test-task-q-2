@@ -15,6 +15,7 @@ export default {
     Inbox: 'Inbox',
     Home: 'Home',
     UsersManagement: 'Users',
+    AboutProject: 'About this project',
     Settings: {
       title: 'Interface Settings',
       showBottomMenu: 'Show bottom menu',
