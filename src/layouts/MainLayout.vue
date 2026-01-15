@@ -146,9 +146,9 @@ import { useAppStore } from 'src/shared/stores/app-store';
 import { useRoute } from 'vue-router';
 import { computed, ref, watch } from 'vue';
 // import { useRouter } from 'vue-router';
-import AppLink from 'src/components/AppLink.vue';
-import AppLanguageSwitch from "src/components/AppLanguageSwitch.vue";
-import AppThemeSwitcher from "src/components/AppThemeSwitcher.vue";
+import AppLink from 'src/shared/components/AppLink.vue';
+import AppLanguageSwitch from "src/shared/components/AppLanguageSwitch.vue";
+import AppThemeSwitcher from "src/shared/components/AppThemeSwitcher.vue";
 import { useI18n } from 'vue-i18n';
 import { STORAGE_KEYS } from 'src/shared/constants/storage-keys';
 
