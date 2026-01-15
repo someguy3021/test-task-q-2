@@ -25,7 +25,7 @@
                     <!-- Age Filter -->
                     <div class="col-12 col-sm-auto">
                         <q-toggle v-model="usersStore.filterAdultsOnly" :label="$t('pages.users.filterAdults')"
-                            color="primary" @update:model-value="usersStore.toggleFilterAdults()" />
+                            color="primary" />
                     </div>
 
                     <!-- Sort Controls -->
