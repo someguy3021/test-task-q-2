@@ -45,7 +45,7 @@
                                     :icon="usersStore.sortOption.direction === 'asc' ? 'arrow_upward' : 'arrow_downward'"
                                     :color="usersStore.sortOption.direction === 'asc' ? 'primary' : 'secondary'"
                                     @click="usersStore.toggleSortDirection()">
-                                    <q-tooltip>
+                                    <q-tooltip class="bg-primary">
                                         {{ $t('pages.UsersPage.toggleSortDirection') }}
                                     </q-tooltip>
                                 </q-btn>

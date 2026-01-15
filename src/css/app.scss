@@ -122,3 +122,17 @@ input:-webkit-autofill:active {
 ::-webkit-resizer {
   background-color: var(--q-sliderEnds);
 }
+
+// Скрытие нативных стрелок при вводе чисел в формах
+/* For Webkit browsers (Chrome, Safari, Edge, Opera) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Removes the default appearance */
+  margin: 0; /* Removes the margin in older versions of Chrome */
+}
+
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield; /* Keeps it looking like a normal text input */
+  appearance: none; /* Standard property for other modern browsers */
+}
