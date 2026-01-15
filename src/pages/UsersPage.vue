@@ -290,23 +290,23 @@ const handleAddUser = (userData: Omit<User, 'id'>) => {
     overflow-x: hidden;
 
     @media (min-height: 500px) {
-        max-height: 53vh;
+        max-height: 51vh;
     }
 
     @media (min-height: 700px) {
-        max-height: 55vh;
+        max-height: 53vh;
     }
 
     @media (min-height: 800px) {
-        max-height: 60vh;
+        max-height: 57vh;
     }
 
     @media (min-height: 850px) {
-        max-height: 63vh;
+        max-height: 61vh;
     }
 
     @media (min-height: 900px) {
-        max-height: 65vh;
+        max-height: 63vh;
     }
 }
 </style>

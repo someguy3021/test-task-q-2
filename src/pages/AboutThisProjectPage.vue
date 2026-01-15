@@ -250,7 +250,7 @@ const architecture = computed(() => [
 const stats = computed(() => [
     {
         label: t('pages.AboutThisProjectPage.stats.totalFiles'),
-        value: '40',
+        value: '41',
         color: 'var(--q-primary)',
         progress: 1
     },
