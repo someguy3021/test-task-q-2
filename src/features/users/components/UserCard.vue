@@ -33,7 +33,7 @@
                     <div class="col-12 col-sm-6">
                         <div class="row items-center">
                             <q-icon name="email" size="sm" class="q-mr-sm" />
-                            <span class="text-body1">{{ user.email }}</span>
+                            <span>{{ user.email }}</span>
                         </div>
                         <div class="row items-center">
                             <q-icon name="cake" size="sm" class="q-mr-sm" />

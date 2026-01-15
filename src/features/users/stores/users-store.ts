@@ -13,6 +13,21 @@ export const useUsersStore = defineStore('users', () => {
     { id: 6, firstName: 'Diana', lastName: 'Miller', age: 16, email: 'diana@example.com', photo: null },
     { id: 7, firstName: 'Ethan', lastName: 'Davis', age: 28, email: 'ethan@example.com', photo: null },
     { id: 8, firstName: 'Fiona', lastName: 'Garcia', age: 35, email: 'fiona@example.com', photo: null },
+    { id: 9, firstName: 'George', lastName: 'Martinez', age: 42, email: 'george.martinez@example.com', photo: null },
+    { id: 10, firstName: 'Hannah', lastName: 'Taylor', age: 23, email: 'h.taylor@example.com', photo: null },
+    { id: 11, firstName: 'Ian', lastName: 'Anderson', age: 31, email: 'ian.anderson@example.com', photo: null },
+    { id: 12, firstName: 'Julia', lastName: 'Thomas', age: 27, email: 'julia.thomas@example.com', photo: null },
+    { id: 13, firstName: 'Kevin', lastName: 'Lee', age: 19, email: 'kevin.lee@example.com', photo: null },
+    { id: 14, firstName: 'Laura', lastName: 'Walker', age: 38, email: 'l.walker@example.com', photo: null },
+    { id: 15, firstName: 'Michael', lastName: 'Harris', age: 45, email: 'm.harris@example.com', photo: null },
+    { id: 16, firstName: 'Natalie', lastName: 'Clark', age: 29, email: 'natalie.c@example.com', photo: null },
+    { id: 17, firstName: 'Oliver', lastName: 'Lewis', age: 33, email: 'oliver.lewis@example.com', photo: null },
+    { id: 18, firstName: 'Paula', lastName: 'Robinson', age: 26, email: 'p.robinson@example.com', photo: null },
+    { id: 19, firstName: 'Quentin', lastName: 'Young', age: 21, email: 'quentin.y@example.com', photo: null },
+    { id: 20, firstName: 'Rachel', lastName: 'King', age: 40, email: 'r.king@example.com', photo: null },
+    { id: 21, firstName: 'Steven', lastName: 'Scott', age: 36, email: 'steven.scott@example.com', photo: null },
+    { id: 22, firstName: 'Tina', lastName: 'Adams', age: 24, email: 't.adams@example.com', photo: null },
+    { id: 23, firstName: 'Victor', lastName: 'Nelson', age: 18, email: 'victor.n@example.com', photo: null },
   ]);
 
   const filterAdultsOnly = ref(false);
@@ -21,23 +36,23 @@ export const useUsersStore = defineStore('users', () => {
   // Computed: filtered users
   const filteredUsers = computed(() => {
     let filtered = [...users.value];
-    
+
     // Apply age filter
     if (filterAdultsOnly.value) {
       filtered = filtered.filter(user => user.age >= 18);
     }
-    
+
     return filtered;
   });
 
   // Computed: sorted and filtered users
   const sortedAndFilteredUsers = computed(() => {
     const filtered = [...filteredUsers.value];
-    
+
     return filtered.sort((a, b) => {
       const aValue = a[sortOption.value.field];
       const bValue = b[sortOption.value.field];
-      
+
       if (sortOption.value.direction === 'asc') {
         return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
       } else {
@@ -75,11 +90,11 @@ export const useUsersStore = defineStore('users', () => {
     // State
     filterAdultsOnly,
     sortOption,
-    
+
     // Computed
     users: sortedAndFilteredUsers,
     allUsers: users,
-    
+
     // Actions
     updateUserPhoto,
     toggleFilterAdults,
