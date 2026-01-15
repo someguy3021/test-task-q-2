@@ -137,8 +137,8 @@
                 </template>
             </q-virtual-scroll>
 
-            <div v-else class="text-center q-py-xl">
-                <div class="text-center q-py-xl">
+            <div v-else class="text-center q-py-md">
+                <div class="text-center q-py-md">
                     <q-icon name="people" size="100px" color="grey-4" class="q-mb-md" />
                     <h3 class="text-h5 q-mb-sm">{{ $t('pages.UsersPage.noUsers') }}</h3>
                     <p class="text-body1 text-grey-7 q-mb-lg">
