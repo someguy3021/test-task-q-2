@@ -1,0 +1,96 @@
+export default {
+  LoginPage: {
+    title: 'Iniciar sesión',
+    email: 'Dirección de correo electrónico',
+    password: 'Contraseña',
+    rememberMe: 'Recordarme',
+    forgotPassword: '¿Olvidaste tu contraseña?',
+    submit: 'Iniciar sesión',
+    noAccount: '¿No tienes una cuenta?',
+    signUp: 'Registrarse',
+    company_name: 'Advanced Engineering',
+    login_form: 'Formulario de inicio de sesión',
+    test_task_for_AE: 'Tarea de prueba para "Advanced Engineering"',
+    email_or_login: 'Correo electrónico o inicio de sesión',
+  },
+  OrdersPage: {
+    title: 'Pedidos',
+    management: 'Gestión de pedidos',
+    total_orders: 'Total de pedidos',
+    admin: 'Administrador',
+    user: 'Usuario',
+    create_order: 'Crear pedido',
+    sort_by: 'Ordenar por',
+    order: 'Orden',
+    status: 'Estado',
+    refresh: 'Actualizar lista',
+    loading_orders: 'Cargando pedidos...',
+    no_orders: 'No hay pedidos. ¡Cree el primero!',
+    create_new_order: 'Crear nuevo pedido',
+    client_nameform: 'Nombre del cliente *',
+    client_name: 'Nombre del cliente',
+    addressform: 'Dirección *',
+    address: 'Dirección',
+    comment: 'Comentario',
+    cancel: 'Cancelar',
+    create: 'Crear',
+    order_details: 'Detalles del pedido',
+    client_name_label: 'Nombre del cliente:',
+    date_label: 'Fecha:',
+    status_label: 'Estado:',
+    comment_label: 'Comentario:',
+    close: 'Cerrar',
+    delete_confirmation: 'Confirmación de eliminación',
+    delete_confirm_message: '¿Está seguro de que desea eliminar el pedido',
+    mark_as_done: 'Marcar como hecho',
+    delete_order: 'Eliminar pedido',
+    details: 'Detalles',
+    order_asc:'Ascending',
+    order_desc:'Descending',
+    filters: {
+      status: 'Estado',
+      date: 'Rango de fechas'
+    },
+    table: {
+      headers: {
+        id: 'ID',
+        name: 'Nombre',
+        address: 'Dirección',
+        date: 'Fecha',
+        status: 'Estado'
+      }
+    },
+    statuses: {
+      new: 'Nuevo',
+      done: 'Hecho',
+      in_progress:'En curso',
+      canceled:'Cancelada'
+    }
+  },
+  DashboardPage: {
+    title: 'Panel de Control',
+    last_updated: 'Última actualización',
+    total_orders: 'Total de Pedidos',
+    completed: 'Completados',
+    new_orders: 'Pedidos Nuevos',
+    avg_per_day: 'Prom. por Día',
+    status_distribution: 'Distribución por Estado',
+    by_day_of_week: 'Actividad por Día de la Semana',
+    time_activity: 'Actividad por Tiempo',
+    random_stats: 'Estadísticas Aleatorias',
+    today: 'Hoy',
+    this_week: 'Esta Semana',
+    this_month: 'Este Mes',
+    last_7_days: 'Últimos 7 Días',
+    completion_rate: 'Tasa de Completación',
+    avg_completion_time: 'Tiempo Promedio de Completación',
+    busiest_day: 'Día Más Ocupado',
+    peak_hour: 'Hora Pico',
+    recent_orders: 'Pedidos Recientes'
+  },
+  ErrorNotFound: {
+    title: '¡Ups! Aquí no hay nada...',
+    message: 'La página que buscas no existe',
+    goHome: 'Ir al inicio'
+  }
+} as const

@@ -1,0 +1,96 @@
+export default {
+  LoginPage: {
+    title: 'Войти',
+    email: 'Адрес электронной почты',
+    password: 'Пароль',
+    rememberMe: 'Запомнить меня',
+    forgotPassword: 'Забыли пароль?',
+    submit: 'Войти',
+    noAccount: 'Нет аккаунта?',
+    signUp: 'Зарегистрироваться',
+    company_name: 'Advanced Engineering',
+    login_form: 'Форма входа',
+    test_task_for_AE: 'Тестовое задание для "Advanced Engineering"',
+    email_or_login: 'Email или логин',
+  },
+  OrdersPage: {
+    title: 'Заказы',
+    management: 'Управление заказами',
+    total_orders: 'Всего заказов',
+    admin: 'Администратор',
+    user: 'Пользователь',
+    create_order: 'Создать заказ',
+    sort_by: 'Сортировать по',
+    order: 'Порядок',
+    status: 'Статус',
+    refresh: 'Обновить список',
+    loading_orders: 'Загрузка заказов...',
+    no_orders: 'Нет заказов. Создайте первый!',
+    create_new_order: 'Создание нового заказа',
+    client_nameform: 'Имя клиента *',
+    client_name: 'Имя клиента',
+    addressform: 'Адрес *',
+    address: 'Адрес',
+    comment: 'Комментарий',
+    cancel: 'Отмена',
+    create: 'Создать',
+    order_details: 'Детали заказа',
+    client_name_label: 'Имя клиента:',
+    date_label: 'Дата:',
+    status_label: 'Статус:',
+    comment_label: 'Комментарий:',
+    close: 'Закрыть',
+    delete_confirmation: 'Подтверждение удаления',
+    delete_confirm_message: 'Вы уверены, что хотите удалить заказ',
+    mark_as_done: 'Отметить как выполненный',
+    delete_order: 'Удалить заказ',
+    details: 'Подробности',
+    order_asc:'Возрастание',
+    order_desc:'Убывание',
+    filters: {
+      status: 'Статус',
+      date: 'Диапазон дат'
+    },
+    table: {
+      headers: {
+        id: 'ID',
+        name: 'Имя',
+        address: 'Адрес',
+        date: 'Дата',
+        status: 'Статус'
+      }
+    },
+    statuses: {
+      new: 'Новый',
+      done: 'Выполнен',
+      in_progress:'В процессе',
+      canceled:'Отменен'
+    }
+  },
+  DashboardPage: {
+    title: 'Дашборд',
+    last_updated: 'Последнее обновление',
+    total_orders: 'Всего заказов',
+    completed: 'Выполнено',
+    new_orders: 'Новых заказов',
+    avg_per_day: 'Среднее в день',
+    status_distribution: 'Распределение по статусам',
+    by_day_of_week: 'Активность по дням недели',
+    time_activity: 'Активность по времени',
+    random_stats: 'Случайная статистика',
+    today: 'Сегодня',
+    this_week: 'На этой неделе',
+    this_month: 'В этом месяце',
+    last_7_days: 'Последние 7 дней',
+    completion_rate: 'Процент выполнения',
+    avg_completion_time: 'Среднее время выполнения',
+    busiest_day: 'Самый загруженный день',
+    peak_hour: 'Пиковый час',
+    recent_orders: 'Недавние заказы'
+  },
+  ErrorNotFound: {
+    title: 'Упс! Здесь ничего нет...',
+    message: 'Страница, которую вы ищете, не существует',
+    goHome: 'На главную'
+  }
+} as const
