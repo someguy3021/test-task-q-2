@@ -142,7 +142,7 @@
 
 <script setup lang="ts">
 // import { useAuthStore } from 'src/features/auth/stores/auth-store';
-import { useAppStore } from 'src/stores/app-store';
+import { useAppStore } from 'src/shared/stores/app-store';
 import { useRoute } from 'vue-router';
 import { computed, ref, watch } from 'vue';
 // import { useRouter } from 'vue-router';
