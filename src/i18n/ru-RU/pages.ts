@@ -22,102 +22,110 @@ export default {
   AboutThisProjectPage: {
     title: 'О выполнении тестового задания',
     subtitle: 'Обзор архитектуры и технических решений проекта',
-    techStack: {
+    tech: {
       title: '🛠 Технологический стек',
-      subtitle: 'Современный стек для SPA-приложения'
+      subtitle: 'Современный стек для SPA-приложения',
+      quasar: {
+        name: 'Quasar Framework',
+        desc: 'Vue.js фреймворк с Material Design'
+      },
+      vue: {
+        name: 'Vue 3',
+        desc: 'Композиционный API, TypeScript'
+      },
+      pinia: {
+        name: 'Pinia',
+        desc: 'State management для Vue 3'
+      },
+      router: {
+        name: 'Vue Router',
+        desc: 'Клиентская маршрутизация'
+      },
+      typescript: {
+        name: 'TypeScript',
+        desc: 'Статическая типизация'
+      },
+      i18n: {
+        name: 'Vue I18n',
+        desc: 'Мультиязычная поддержка'
+      }
     },
     architecture: {
       title: '🏗 Архитектура проекта',
-      subtitle: 'Feature-based структура с модульным подходом'
+      subtitle: 'Feature-based структура с модульным подходом',
+      feature: {
+        title: 'Feature-Based Structure',
+        subtitle: 'Модульная организация кода',
+        desc: 'Проект организован по функциональным модулям (features) для лучшей масштабируемости и переиспользования кода.',
+        tags: {
+          users: 'users',
+          auth: 'auth',
+          scalable: 'scalable'
+        }
+      },
+      shared: {
+        title: 'Shared Layer',
+        subtitle: 'Общие компоненты и утилиты',
+        desc: 'Централизованное хранение общих компонентов, типов, констант и хранилищ для обеспечения консистентности.',
+        tags: {
+          components: 'components',
+          types: 'types',
+          stores: 'stores'
+        }
+      },
+      i18n: {
+        title: 'Internationalization',
+        subtitle: 'Поддержка 3 языков',
+        desc: 'Полная поддержка английского, русского и испанского языков с системой плагинов Quasar.',
+        tags: {
+          i18n: 'i18n',
+          en: 'en-US',
+          ru: 'ru-RU',
+          es: 'es-ES'
+        }
+      },
+      theme: {
+        title: 'Theme System',
+        subtitle: 'Светлая и тёмная темы',
+        desc: 'Гибкая система тем с кастомными цветами для обоих режимов отображения.',
+        tags: {
+          light: 'light',
+          dark: 'dark'
+        }
+      }
     },
-    statistics: {
+    stats: {
       title: '📊 Статистика проекта',
-      subtitle: 'Цифры и факты'
+      subtitle: 'Цифры и факты',
+      totalFiles: 'Всего файлов',
+      vueComponents: 'Vue компоненты',
+      typescriptFiles: 'TypeScript файлы',
+      languages: 'Мультиязычность',
+      dependencies: 'Зависимости'
     },
     features: {
       title: '✨ Особенности',
-      subtitle: 'Ключевые технические решения'
+      subtitle: 'Ключевые технические решения',
+      responsive: {
+        title: 'Адаптивный дизайн',
+        desc: 'Полная поддержка мобильных и десктопных устройств'
+      },
+      typescript: {
+        title: 'TypeScript First',
+        desc: 'Строгая типизация для надежности кода'
+      },
+      quasar: {
+        title: 'Quasar Components',
+        desc: 'Использование готовых Material Design компонентов'
+      }
     },
-    additionalInfo: {
+    additional: {
       title: '📝 Дополнительная информация',
       buildDeploy: 'Сборка и деплой:',
-      dev: 'Разработка:',
-      build: 'Сборка:',
+      dev: 'Разработка: quasar dev',
+      build: 'Сборка: quasar build',
       deploy: 'Деплой на платформе Vercel'
-    },
-    technologies: [
-      {
-        name: 'Quasar Framework',
-        description: 'Vue.js фреймворк с Material Design'
-      },
-      {
-        name: 'Vue 3',
-        description: 'Композиционный API, TypeScript'
-      },
-      {
-        name: 'Pinia',
-        description: 'State management для Vue 3'
-      },
-      {
-        name: 'Vue Router',
-        description: 'Клиентская маршрутизация'
-      },
-      {
-        name: 'TypeScript',
-        description: 'Статическая типизация'
-      },
-      {
-        name: 'Vue I18n',
-        description: 'Мультиязычная поддержка'
-      }
-    ],
-    architectureItems: [
-      {
-        title: 'Feature-Based Structure',
-        subtitle: 'Модульная организация кода',
-        description: 'Проект организован по функциональным модулям (features) для лучшей масштабируемости и переиспользования кода.',
-        tags: ['users', 'auth', 'scalable']
-      },
-      {
-        title: 'Shared Layer',
-        subtitle: 'Общие компоненты и утилиты',
-        description: 'Централизованное хранение общих компонентов, типов, констант и хранилищ для обеспечения консистентности.',
-        tags: ['components', 'types', 'stores']
-      },
-      {
-        title: 'Internationalization',
-        subtitle: 'Поддержка 3 языков',
-        description: 'Полная поддержка английского, русского и испанского языков с системой плагинов Quasar.',
-        tags: ['i18n', 'en-US', 'ru-RU', 'es-ES']
-      },
-      {
-        title: 'Theme System',
-        subtitle: 'Светлая и тёмная темы',
-        description: 'Гибкая система тем с кастомными цветами для обоих режимов отображения.',
-        tags: ['light', 'dark']
-      }
-    ],
-    stats: [
-      { label: 'Всего файлов', value: '40' },
-      { label: 'Vue компоненты', value: '7' },
-      { label: 'TypeScript файлы', value: '20+' },
-      { label: 'Языки поддержки', value: '3' },
-      { label: 'Зависимости', value: '20' }
-    ],
-    featuresList: [
-      {
-        title: 'Адаптивный дизайн',
-        description: 'Полная поддержка мобильных и десктопных устройств'
-      },
-      {
-        title: 'TypeScript First',
-        description: 'Строгая типизация для надежности кода'
-      },
-      {
-        title: 'Quasar Components',
-        description: 'Использование готовых Material Design компонентов'
-      }
-    ]
+    }
   },
   ErrorNotFound: {
     title: 'Упс! Здесь ничего нет...',

@@ -20,104 +20,112 @@ export default {
     email: 'Correo electrónico',
   },
   AboutThisProjectPage: {
-    title: 'Sobre la tarea de prueba',
-    subtitle: 'Descripción general de la arquitectura y soluciones técnicas del proyecto',
-    techStack: {
+    title: 'Acerca de la finalización de la tarea de prueba',
+    subtitle: 'Descripción general de la arquitectura del proyecto y soluciones técnicas',
+    tech: {
       title: '🛠 Pila tecnológica',
-      subtitle: 'Pila moderna para aplicación SPA'
+      subtitle: 'Pila moderna para aplicación SPA',
+      quasar: {
+        name: 'Quasar Framework',
+        desc: 'Framework Vue.js con Material Design'
+      },
+      vue: {
+        name: 'Vue 3',
+        desc: 'API de composición, TypeScript'
+      },
+      pinia: {
+        name: 'Pinia',
+        desc: 'Gestión de estado para Vue 3'
+      },
+      router: {
+        name: 'Vue Router',
+        desc: 'Enrutamiento del lado del cliente'
+      },
+      typescript: {
+        name: 'TypeScript',
+        desc: 'Tipado estático'
+      },
+      i18n: {
+        name: 'Vue I18n',
+        desc: 'Soporte multilingüe'
+      }
     },
     architecture: {
       title: '🏗 Arquitectura del proyecto',
-      subtitle: 'Estructura basada en características con enfoque modular'
+      subtitle: 'Estructura basada en características con enfoque modular',
+      feature: {
+        title: 'Estructura basada en características',
+        subtitle: 'Organización modular del código',
+        desc: 'El proyecto está organizado por módulos funcionales (características) para una mejor escalabilidad y reutilización del código.',
+        tags: {
+          users: 'usuarios',
+          auth: 'autenticación',
+          scalable: 'escalable'
+        }
+      },
+      shared: {
+        title: 'Capa compartida',
+        subtitle: 'Componentes y utilidades comunes',
+        desc: 'Almacenamiento centralizado de componentes, tipos, constantes y almacenes comunes para garantizar la coherencia.',
+        tags: {
+          components: 'componentes',
+          types: 'tipos',
+          stores: 'almacenes'
+        }
+      },
+      i18n: {
+        title: 'Internacionalización',
+        subtitle: 'Soporte para 3 idiomas',
+        desc: 'Soporte completo para inglés, ruso y español con el sistema de complementos de Quasar.',
+        tags: {
+          i18n: 'i18n',
+          en: 'en-US',
+          ru: 'ru-RU',
+          es: 'es-ES'
+        }
+      },
+      theme: {
+        title: 'Sistema de temas',
+        subtitle: 'Temas claro y oscuro',
+        desc: 'Sistema de temas flexible con colores personalizados para ambos modos de visualización.',
+        tags: {
+          light: 'claro',
+          dark: 'oscuro'
+        }
+      }
     },
-    statistics: {
+    stats: {
       title: '📊 Estadísticas del proyecto',
-      subtitle: 'Números y hechos'
+      subtitle: 'Números y hechos',
+      totalFiles: 'Archivos totales',
+      vueComponents: 'Componentes Vue',
+      typescriptFiles: 'Archivos TypeScript',
+      languages: 'Idiomas soportados',
+      dependencies: 'Dependencias'
     },
     features: {
       title: '✨ Características',
-      subtitle: 'Decisiones técnicas clave'
-    },
-    additionalInfo: {
-      title: '📝 Información adicional',
-      buildDeploy: 'Construcción y despliegue:',
-      dev: 'Desarrollo:',
-      build: 'Construcción:',
-      deploy: 'Despliegue en la plataforma Vercel'
-    },
-    technologies: [
-      {
-        name: 'Quasar Framework',
-        description: 'Framework Vue.js con Material Design'
-      },
-      {
-        name: 'Vue 3',
-        description: 'API de composición, TypeScript'
-      },
-      {
-        name: 'Pinia',
-        description: 'Gestión de estado para Vue 3'
-      },
-      {
-        name: 'Vue Router',
-        description: 'Enrutamiento del lado del cliente'
-      },
-      {
-        name: 'TypeScript',
-        description: 'Tipado estático'
-      },
-      {
-        name: 'Vue I18n',
-        description: 'Soporte multilingüe'
-      }
-    ],
-    architectureItems: [
-      {
-        title: 'Estructura basada en características',
-        subtitle: 'Organización modular del código',
-        description: 'El proyecto está organizado por módulos funcionales (características) para una mejor escalabilidad y reutilización del código.',
-        tags: ['users', 'auth', 'scalable']
-      },
-      {
-        title: 'Capa compartida',
-        subtitle: 'Componentes y utilidades comunes',
-        description: 'Almacenamiento centralizado de componentes, tipos, constantes y almacenes comunes para garantizar la coherencia.',
-        tags: ['components', 'types', 'stores']
-      },
-      {
-        title: 'Internacionalización',
-        subtitle: 'Soporte para 3 idiomas',
-        description: 'Soporte completo para inglés, ruso y español con el sistema de complementos de Quasar.',
-        tags: ['i18n', 'en-US', 'ru-RU', 'es-ES']
-      },
-      {
-        title: 'Sistema de temas',
-        subtitle: 'Temas claros y oscuros',
-        description: 'Sistema de temas flexible con colores personalizados para ambos modos de visualización.',
-        tags: ['light', 'dark']
-      }
-    ],
-    stats: [
-      { label: 'Archivos totales', value: '40' },
-      { label: 'Componentes Vue', value: '7' },
-      { label: 'Archivos TypeScript', value: '20+' },
-      { label: 'Idiomas admitidos', value: '3' },
-      { label: 'Dependencias', value: '20' }
-    ],
-    featuresList: [
-      {
+      subtitle: 'Soluciones técnicas clave',
+      responsive: {
         title: 'Diseño responsivo',
-        description: 'Soporte completo para dispositivos móviles y de escritorio'
+        desc: 'Soporte completo para dispositivos móviles y de escritorio'
       },
-      {
+      typescript: {
         title: 'TypeScript primero',
-        description: 'Tipado estricto para la confiabilidad del código'
+        desc: 'Tipado estricto para confiabilidad del código'
       },
-      {
+      quasar: {
         title: 'Componentes Quasar',
-        description: 'Uso de componentes Material Design listos para usar'
+        desc: 'Uso de componentes Material Design listos'
       }
-    ]
+    },
+    additional: {
+      title: '📝 Información adicional',
+      buildDeploy: 'Compilación y despliegue:',
+      dev: 'Desarrollo: quasar dev',
+      build: 'Compilación: quasar build',
+      deploy: 'Despliegue en plataforma Vercel'
+    }
   },
   ErrorNotFound: {
     title: '¡Ups! Aquí no hay nada...',

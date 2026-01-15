@@ -7,7 +7,7 @@
                     <h1 class="text-h3 text-weight-bold q-mb-md">
                         {{ $t('pages.AboutThisProjectPage.title') }}
                     </h1>
-                    <div class="text-subtitle1 ">
+                    <div class="text-subtitle1">
                         {{ $t('pages.AboutThisProjectPage.subtitle') }}
                     </div>
                 </div>
@@ -20,25 +20,25 @@
                     <!-- Технологический стек -->
                     <q-card class="tech-card q-mb-lg" flat bordered>
                         <q-card-section class="bg-primary text-white">
-                            <div class="text-h5 q-mb-sm">{{ $t('pages.AboutThisProjectPage.techStack.title') }}</div>
+                            <div class="text-h5 q-mb-sm">{{ $t('pages.AboutThisProjectPage.tech.title') }}</div>
                             <div class="text-caption opacity-70">
-                                {{ $t('pages.AboutThisProjectPage.techStack.subtitle') }}
+                                {{ $t('pages.AboutThisProjectPage.tech.subtitle') }}
                             </div>
                         </q-card-section>
 
                         <q-card-section>
                             <div class="row q-col-gutter-md">
-                                <div class="col-12 col-sm-6" v-for="(tech, index) in technologies" :key="index">
+                                <div class="col-12 col-sm-6" v-for="tech in technologies" :key="tech.name">
                                     <q-item class="tech-item q-pa-sm">
                                         <q-item-section avatar>
                                             <q-icon :name="tech.icon" :color="tech.color" size="28px" />
                                         </q-item-section>
                                         <q-item-section>
                                             <q-item-label class="text-weight-medium">
-                                                {{ $t(`pages.AboutThisProjectPage.technologies.${index}.name`) }}
+                                                {{ tech.name }}
                                             </q-item-label>
                                             <q-item-label caption class="">
-                                                {{ $t(`pages.AboutThisProjectPage.technologies.${index}.description`) }}
+                                                {{ tech.description }}
                                             </q-item-label>
                                         </q-item-section>
                                     </q-item>
@@ -58,15 +58,13 @@
 
                         <q-card-section>
                             <q-timeline color="secondary" class="q-mt-md">
-                                <q-timeline-entry v-for="(item, index) in architecture" :key="index"
-                                    :title="$t(`pages.AboutThisProjectPage.architectureItems.${index}.title`)"
-                                    :subtitle="$t(`pages.AboutThisProjectPage.architectureItems.${index}.subtitle`)"
-                                    :icon="item.icon" :color="item.color">
+                                <q-timeline-entry v-for="item in architecture" :key="item.title" :title="item.title"
+                                    :subtitle="item.subtitle" :icon="item.icon" :color="item.color">
                                     <div class="text-body2 q-mt-sm">
-                                        {{ $t(`pages.AboutThisProjectPage.architectureItems.${index}.description`) }}
+                                        {{ item.description }}
                                     </div>
-                                    <q-chip v-for="(tag, tagIndex) in item.tags" :key="tagIndex" size="sm"
-                                        :color="item.color" text-color="white" class="q-mt-xs q-mr-xs">
+                                    <q-chip v-for="tag in item.tags" :key="tag" size="sm" :color="item.color"
+                                        text-color="white" class="q-mt-xs q-mr-xs">
                                         {{ tag }}
                                     </q-chip>
                                 </q-timeline-entry>
@@ -80,24 +78,24 @@
                     <!-- Статистика проекта -->
                     <q-card class="stats-card q-mb-lg" flat bordered>
                         <q-card-section class="bg-secondary text-white">
-                            <div class="text-h5 q-mb-sm">{{ $t('pages.AboutThisProjectPage.statistics.title') }}</div>
+                            <div class="text-h5 q-mb-sm">{{ $t('pages.AboutThisProjectPage.stats.title') }}</div>
                             <div class="text-caption opacity-70">
-                                {{ $t('pages.AboutThisProjectPage.statistics.subtitle') }}
+                                {{ $t('pages.AboutThisProjectPage.stats.subtitle') }}
                             </div>
                         </q-card-section>
 
                         <q-card-section>
                             <div class="column q-gutter-y-md">
-                                <div class="stat-item" v-for="(stat, index) in stats" :key="index">
+                                <div class="stat-item" v-for="stat in stats" :key="stat.label">
                                     <div class="row items-center justify-between">
                                         <div class="col">
-                                            <div class="text-body2 ">
-                                                {{ $t(`pages.AboutThisProjectPage.stats.${index}.label`) }}
+                                            <div class="text-body2">
+                                                {{ stat.label }}
                                             </div>
                                         </div>
                                         <div class="col-auto">
                                             <div class="text-h6 text-weight-bold" :style="{ color: stat.color }">
-                                                {{ stat.progress }}
+                                                {{ stat.value }}
                                             </div>
                                         </div>
                                     </div>
@@ -119,16 +117,16 @@
 
                         <q-card-section>
                             <q-list bordered separator>
-                                <q-item v-for="(feature, index) in features" :key="index" class="q-py-md">
+                                <q-item v-for="feature in features" :key="feature.title" class="q-py-md">
                                     <q-item-section avatar>
                                         <q-icon :name="feature.icon" :color="feature.color" />
                                     </q-item-section>
                                     <q-item-section>
                                         <q-item-label class="text-weight-medium">
-                                            {{ $t(`pages.AboutThisProjectPage.featuresList.${index}.title`) }}
+                                            {{ feature.title }}
                                         </q-item-label>
                                         <q-item-label caption lines="2">
-                                            {{ $t(`pages.AboutThisProjectPage.featuresList.${index}.description`) }}
+                                            {{ feature.description }}
                                         </q-item-label>
                                     </q-item-section>
                                 </q-item>
@@ -144,20 +142,17 @@
                     <q-card class="info-card" flat bordered>
                         <q-card-section>
                             <div class="text-h5 q-mb-md text-weight-medium">
-                                {{ $t('pages.AboutThisProjectPage.additionalInfo.title') }}
+                                {{ $t('pages.AboutThisProjectPage.additional.title') }}
                             </div>
                             <div class="row q-col-gutter-md">
                                 <div class="col-12 col-sm-6">
                                     <div class="text-body1 q-mb-sm">
-                                        <strong>{{ $t('pages.AboutThisProjectPage.additionalInfo.buildDeploy')
-                                            }}</strong>
+                                        <strong>{{ $t('pages.AboutThisProjectPage.additional.buildDeploy') }}</strong>
                                     </div>
                                     <ul class="q-pl-md">
-                                        <li>{{ $t('pages.AboutThisProjectPage.additionalInfo.dev') }}
-                                            <code>quasar dev</code></li>
-                                        <li>{{ $t('pages.AboutThisProjectPage.additionalInfo.build') }}
-                                            <code>quasar build</code></li>
-                                        <li>{{ $t('pages.AboutThisProjectPage.additionalInfo.deploy') }}</li>
+                                        <li>{{ $t('pages.AboutThisProjectPage.additional.dev') }}</li>
+                                        <li>{{ $t('pages.AboutThisProjectPage.additional.build') }}</li>
+                                        <li>{{ $t('pages.AboutThisProjectPage.additional.deploy') }}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -170,82 +165,116 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
 
 const { t } = useI18n();
 
-// Технологии
+// Технологии - статические, но с переведенными описаниями
 const technologies = computed(() => [
     {
+        name: t('pages.AboutThisProjectPage.tech.quasar.name'),
         icon: 'rocket_launch',
         color: 'primary',
+        description: t('pages.AboutThisProjectPage.tech.quasar.desc')
     },
     {
+        name: t('pages.AboutThisProjectPage.tech.vue.name'),
         icon: 'view_in_ar',
         color: 'positive',
+        description: t('pages.AboutThisProjectPage.tech.vue.desc')
     },
     {
+        name: t('pages.AboutThisProjectPage.tech.pinia.name'),
         icon: 'storage',
         color: 'accent',
+        description: t('pages.AboutThisProjectPage.tech.pinia.desc')
     },
     {
+        name: t('pages.AboutThisProjectPage.tech.router.name'),
         icon: 'signpost',
         color: 'info',
+        description: t('pages.AboutThisProjectPage.tech.router.desc')
     },
     {
+        name: t('pages.AboutThisProjectPage.tech.typescript.name'),
         icon: 'code',
         color: 'secondary',
+        description: t('pages.AboutThisProjectPage.tech.typescript.desc')
     },
     {
+        name: t('pages.AboutThisProjectPage.tech.i18n.name'),
         icon: 'translate',
         color: 'warning',
+        description: t('pages.AboutThisProjectPage.tech.i18n.desc')
     }
 ]);
 
 // Архитектура
 const architecture = computed(() => [
     {
+        title: t('pages.AboutThisProjectPage.architecture.feature.title'),
+        subtitle: t('pages.AboutThisProjectPage.architecture.feature.subtitle'),
         icon: 'widgets',
         color: 'primary',
-        tags: ['users', 'auth', 'scalable']
+        description: t('pages.AboutThisProjectPage.architecture.feature.desc'),
+        tags: [t('pages.AboutThisProjectPage.architecture.feature.tags.users'), t('pages.AboutThisProjectPage.architecture.feature.tags.auth'), t('pages.AboutThisProjectPage.architecture.feature.tags.scalable')]
     },
     {
+        title: t('pages.AboutThisProjectPage.architecture.shared.title'),
+        subtitle: t('pages.AboutThisProjectPage.architecture.shared.subtitle'),
         icon: 'share',
         color: 'secondary',
-        tags: ['components', 'types', 'stores']
+        description: t('pages.AboutThisProjectPage.architecture.shared.desc'),
+        tags: [t('pages.AboutThisProjectPage.architecture.shared.tags.components'), t('pages.AboutThisProjectPage.architecture.shared.tags.types'), t('pages.AboutThisProjectPage.architecture.shared.tags.stores')]
     },
     {
+        title: t('pages.AboutThisProjectPage.architecture.i18n.title'),
+        subtitle: t('pages.AboutThisProjectPage.architecture.i18n.subtitle'),
         icon: 'language',
         color: 'accent',
-        tags: ['i18n', 'en-US', 'ru-RU', 'es-ES']
+        description: t('pages.AboutThisProjectPage.architecture.i18n.desc'),
+        tags: [t('pages.AboutThisProjectPage.architecture.i18n.tags.i18n'), t('pages.AboutThisProjectPage.architecture.i18n.tags.en'), t('pages.AboutThisProjectPage.architecture.i18n.tags.ru'), t('pages.AboutThisProjectPage.architecture.i18n.tags.es')]
     },
     {
+        title: t('pages.AboutThisProjectPage.architecture.theme.title'),
+        subtitle: t('pages.AboutThisProjectPage.architecture.theme.subtitle'),
         icon: 'palette',
         color: 'positive',
-        tags: ['light', 'dark']
+        description: t('pages.AboutThisProjectPage.architecture.theme.desc'),
+        tags: [t('pages.AboutThisProjectPage.architecture.theme.tags.light'), t('pages.AboutThisProjectPage.architecture.theme.tags.dark')]
     }
 ]);
 
-// Статистика
+// Статистика - статические значения, но переведенные метки
 const stats = computed(() => [
     {
+        label: t('pages.AboutThisProjectPage.stats.totalFiles'),
+        value: '40',
         color: 'var(--q-primary)',
         progress: 1
     },
     {
+        label: t('pages.AboutThisProjectPage.stats.vueComponents'),
+        value: '7',
         color: 'var(--q-positive)',
         progress: 0.7
     },
     {
+        label: t('pages.AboutThisProjectPage.stats.typescriptFiles'),
+        value: '20+',
         color: 'var(--q-secondary)',
         progress: 0.8
     },
     {
-        color: 'var(--q-accent)',
+        label: t('pages.AboutThisProjectPage.stats.languages'),
+        value: '3',
+        color: 'var(--q-primary)',
         progress: 0.6
     },
     {
+        label: t('pages.AboutThisProjectPage.stats.dependencies'),
+        value: '20',
         color: 'var(--q-info)',
         progress: 1
     }
@@ -254,16 +283,22 @@ const stats = computed(() => [
 // Особенности
 const features = computed(() => [
     {
+        title: t('pages.AboutThisProjectPage.features.responsive.title'),
         icon: 'devices',
         color: 'primary',
+        description: t('pages.AboutThisProjectPage.features.responsive.desc')
     },
     {
+        title: t('pages.AboutThisProjectPage.features.typescript.title'),
         icon: 'security',
         color: 'secondary',
+        description: t('pages.AboutThisProjectPage.features.typescript.desc')
     },
     {
+        title: t('pages.AboutThisProjectPage.features.quasar.title'),
         icon: 'view_quilt',
         color: 'positive',
+        description: t('pages.AboutThisProjectPage.features.quasar.desc')
     }
 ]);
 </script>

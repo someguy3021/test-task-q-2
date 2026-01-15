@@ -20,104 +20,112 @@ export default {
     email: 'Email',
   },
   AboutThisProjectPage: {
-    title: 'About the Test Task',
+    title: 'About Test Task Completion',
     subtitle: 'Overview of project architecture and technical solutions',
-    techStack: {
+    tech: {
       title: '🛠 Technology Stack',
-      subtitle: 'Modern stack for SPA application'
+      subtitle: 'Modern stack for SPA application',
+      quasar: {
+        name: 'Quasar Framework',
+        desc: 'Vue.js framework with Material Design'
+      },
+      vue: {
+        name: 'Vue 3',
+        desc: 'Composition API, TypeScript'
+      },
+      pinia: {
+        name: 'Pinia',
+        desc: 'State management for Vue 3'
+      },
+      router: {
+        name: 'Vue Router',
+        desc: 'Client-side routing'
+      },
+      typescript: {
+        name: 'TypeScript',
+        desc: 'Static typing'
+      },
+      i18n: {
+        name: 'Vue I18n',
+        desc: 'Multi-language support'
+      }
     },
     architecture: {
       title: '🏗 Project Architecture',
-      subtitle: 'Feature-based structure with modular approach'
+      subtitle: 'Feature-based structure with modular approach',
+      feature: {
+        title: 'Feature-Based Structure',
+        subtitle: 'Modular code organization',
+        desc: 'The project is organized by functional modules (features) for better scalability and code reusability.',
+        tags: {
+          users: 'users',
+          auth: 'auth',
+          scalable: 'scalable'
+        }
+      },
+      shared: {
+        title: 'Shared Layer',
+        subtitle: 'Common components and utilities',
+        desc: 'Centralized storage of common components, types, constants and stores for consistency.',
+        tags: {
+          components: 'components',
+          types: 'types',
+          stores: 'stores'
+        }
+      },
+      i18n: {
+        title: 'Internationalization',
+        subtitle: 'Support for 3 languages',
+        desc: 'Full support for English, Russian and Spanish with Quasar plugin system.',
+        tags: {
+          i18n: 'i18n',
+          en: 'en-US',
+          ru: 'ru-RU',
+          es: 'es-ES'
+        }
+      },
+      theme: {
+        title: 'Theme System',
+        subtitle: 'Light and dark themes',
+        desc: 'Flexible theme system with custom colors for both display modes.',
+        tags: {
+          light: 'light',
+          dark: 'dark'
+        }
+      }
     },
-    statistics: {
+    stats: {
       title: '📊 Project Statistics',
-      subtitle: 'Numbers and facts'
+      subtitle: 'Numbers and facts',
+      totalFiles: 'Total files',
+      vueComponents: 'Vue components',
+      typescriptFiles: 'TypeScript files',
+      languages: 'Supported languages',
+      dependencies: 'Dependencies'
     },
     features: {
       title: '✨ Features',
-      subtitle: 'Key technical decisions'
-    },
-    additionalInfo: {
-      title: '📝 Additional Information',
-      buildDeploy: 'Build and Deploy:',
-      dev: 'Development:',
-      build: 'Build:',
-      deploy: 'Deployment on Vercel platform'
-    },
-    technologies: [
-      {
-        name: 'Quasar Framework',
-        description: 'Vue.js framework with Material Design'
-      },
-      {
-        name: 'Vue 3',
-        description: 'Composition API, TypeScript'
-      },
-      {
-        name: 'Pinia',
-        description: 'State management for Vue 3'
-      },
-      {
-        name: 'Vue Router',
-        description: 'Client-side routing'
-      },
-      {
-        name: 'TypeScript',
-        description: 'Static typing'
-      },
-      {
-        name: 'Vue I18n',
-        description: 'Multi-language support'
-      }
-    ],
-    architectureItems: [
-      {
-        title: 'Feature-Based Structure',
-        subtitle: 'Modular code organization',
-        description: 'The project is organized by functional modules (features) for better scalability and code reuse.',
-        tags: ['users', 'auth', 'scalable']
-      },
-      {
-        title: 'Shared Layer',
-        subtitle: 'Common components and utilities',
-        description: 'Centralized storage of common components, types, constants, and stores to ensure consistency.',
-        tags: ['components', 'types', 'stores']
-      },
-      {
-        title: 'Internationalization',
-        subtitle: 'Support for 3 languages',
-        description: 'Full support for English, Russian and Spanish with Quasar plugin system.',
-        tags: ['i18n', 'en-US', 'ru-RU', 'es-ES']
-      },
-      {
-        title: 'Theme System',
-        subtitle: 'Light and dark themes',
-        description: 'Flexible theme system with custom colors for both display modes.',
-        tags: ['light', 'dark']
-      }
-    ],
-    stats: [
-      { label: 'Total files', value: '40' },
-      { label: 'Vue components', value: '7' },
-      { label: 'TypeScript files', value: '20+' },
-      { label: 'Supported languages', value: '3' },
-      { label: 'Dependencies', value: '20' }
-    ],
-    featuresList: [
-      {
+      subtitle: 'Key technical solutions',
+      responsive: {
         title: 'Responsive Design',
-        description: 'Full support for mobile and desktop devices'
+        desc: 'Full support for mobile and desktop devices'
       },
-      {
+      typescript: {
         title: 'TypeScript First',
-        description: 'Strict typing for code reliability'
+        desc: 'Strict typing for code reliability'
       },
-      {
+      quasar: {
         title: 'Quasar Components',
-        description: 'Using ready-made Material Design components'
+        desc: 'Using ready-made Material Design components'
       }
-    ]
+    },
+    additional: {
+      title: '📝 Additional Information',
+      buildDeploy: 'Build and deploy:',
+      dev: 'Development: quasar dev',
+      build: 'Build: quasar build',
+      deploy: 'Deploy on Vercel platform'
+    }
   },
   ErrorNotFound: {
     title: 'Oops! Nothing here...',
