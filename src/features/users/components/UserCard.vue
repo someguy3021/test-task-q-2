@@ -5,7 +5,7 @@
                 <!-- User Photo -->
                 <div class="user-photo-container q-mb-sm">
                     <q-avatar v-if="user.photo" size="60px" class="user-avatar">
-                        <img :src="user.photo" :alt="`${user.firstName} ${user.lastName}`" />
+                        <q-img :src="user.photo" :alt="`${user.firstName} ${user.lastName}`" />
                     </q-avatar>
 
                     <q-avatar v-else size="60px" color="primary" text-color="white" class="user-avatar">
