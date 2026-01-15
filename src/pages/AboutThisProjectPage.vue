@@ -5,10 +5,10 @@
             <div class="row q-mb-xl">
                 <div class="col-12">
                     <h1 class="text-h3 text-weight-bold q-mb-md">
-                        О выполнении тестового задания
+                        {{ $t('pages.about.title') }}
                     </h1>
                     <div class="text-subtitle1 ">
-                        Обзор архитектуры и технических решений проекта
+                        {{ $t('pages.about.subtitle') }}
                     </div>
                 </div>
             </div>
@@ -20,25 +20,25 @@
                     <!-- Технологический стек -->
                     <q-card class="tech-card q-mb-lg" flat bordered>
                         <q-card-section class="bg-primary text-white">
-                            <div class="text-h5 q-mb-sm">🛠 Технологический стек</div>
+                            <div class="text-h5 q-mb-sm">{{ $t('pages.about.techStack.title') }}</div>
                             <div class="text-caption opacity-70">
-                                Современный стек для SPA-приложения
+                                {{ $t('pages.about.techStack.subtitle') }}
                             </div>
                         </q-card-section>
 
                         <q-card-section>
                             <div class="row q-col-gutter-md">
-                                <div class="col-12 col-sm-6" v-for="tech in technologies" :key="tech.name">
+                                <div class="col-12 col-sm-6" v-for="(tech, index) in technologies" :key="index">
                                     <q-item class="tech-item q-pa-sm">
                                         <q-item-section avatar>
                                             <q-icon :name="tech.icon" :color="tech.color" size="28px" />
                                         </q-item-section>
                                         <q-item-section>
                                             <q-item-label class="text-weight-medium">
-                                                {{ tech.name }}
+                                                {{ $t(`pages.about.technologies.${index}.name`) }}
                                             </q-item-label>
                                             <q-item-label caption class="">
-                                                {{ tech.description }}
+                                                {{ $t(`pages.about.technologies.${index}.description`) }}
                                             </q-item-label>
                                         </q-item-section>
                                     </q-item>
@@ -50,21 +50,23 @@
                     <!-- Архитектура -->
                     <q-card class="arch-card q-mb-lg" flat bordered>
                         <q-card-section class="bg-accent text-white">
-                            <div class="text-h5 q-mb-sm">🏗 Архитектура проекта</div>
+                            <div class="text-h5 q-mb-sm">{{ $t('pages.about.architecture.title') }}</div>
                             <div class="text-caption opacity-70">
-                                Feature-based структура с модульным подходом
+                                {{ $t('pages.about.architecture.subtitle') }}
                             </div>
                         </q-card-section>
 
                         <q-card-section>
                             <q-timeline color="secondary" class="q-mt-md">
-                                <q-timeline-entry v-for="item in architecture" :key="item.title" :title="item.title"
-                                    :subtitle="item.subtitle" :icon="item.icon" :color="item.color">
+                                <q-timeline-entry v-for="(item, index) in architecture" :key="index"
+                                    :title="$t(`pages.about.architectureItems.${index}.title`)"
+                                    :subtitle="$t(`pages.about.architectureItems.${index}.subtitle`)" :icon="item.icon"
+                                    :color="item.color">
                                     <div class="text-body2 q-mt-sm">
-                                        {{ item.description }}
+                                        {{ $t(`pages.about.architectureItems.${index}.description`) }}
                                     </div>
-                                    <q-chip v-for="tag in item.tags" :key="tag" size="sm" :color="item.color"
-                                        text-color="white" class="q-mt-xs q-mr-xs">
+                                    <q-chip v-for="(tag, tagIndex) in item.tags" :key="tagIndex" size="sm"
+                                        :color="item.color" text-color="white" class="q-mt-xs q-mr-xs">
                                         {{ tag }}
                                     </q-chip>
                                 </q-timeline-entry>
@@ -78,24 +80,24 @@
                     <!-- Статистика проекта -->
                     <q-card class="stats-card q-mb-lg" flat bordered>
                         <q-card-section class="bg-secondary text-white">
-                            <div class="text-h5 q-mb-sm">📊 Статистика проекта</div>
+                            <div class="text-h5 q-mb-sm">{{ $t('pages.about.statistics.title') }}</div>
                             <div class="text-caption opacity-70">
-                                Цифры и факты
+                                {{ $t('pages.about.statistics.subtitle') }}
                             </div>
                         </q-card-section>
 
                         <q-card-section>
                             <div class="column q-gutter-y-md">
-                                <div class="stat-item" v-for="stat in stats" :key="stat.label">
+                                <div class="stat-item" v-for="(stat, index) in stats" :key="index">
                                     <div class="row items-center justify-between">
                                         <div class="col">
                                             <div class="text-body2 ">
-                                                {{ stat.label }}
+                                                {{ $t(`pages.about.stats.${index}.label`) }}
                                             </div>
                                         </div>
                                         <div class="col-auto">
                                             <div class="text-h6 text-weight-bold" :style="{ color: stat.color }">
-                                                {{ stat.value }}
+                                                {{ stat.progress }}
                                             </div>
                                         </div>
                                     </div>
@@ -109,24 +111,24 @@
                     <!-- Особенности реализации -->
                     <q-card class="features-card" flat bordered>
                         <q-card-section class="bg-positive text-white">
-                            <div class="text-h5 q-mb-sm">✨ Особенности</div>
+                            <div class="text-h5 q-mb-sm">{{ $t('pages.about.features.title') }}</div>
                             <div class="text-caption opacity-70">
-                                Ключевые технические решения
+                                {{ $t('pages.about.features.subtitle') }}
                             </div>
                         </q-card-section>
 
                         <q-card-section>
                             <q-list bordered separator>
-                                <q-item v-for="feature in features" :key="feature.title" class="q-py-md">
+                                <q-item v-for="(feature, index) in features" :key="index" class="q-py-md">
                                     <q-item-section avatar>
                                         <q-icon :name="feature.icon" :color="feature.color" />
                                     </q-item-section>
                                     <q-item-section>
                                         <q-item-label class="text-weight-medium">
-                                            {{ feature.title }}
+                                            {{ $t(`pages.about.featuresList.${index}.title`) }}
                                         </q-item-label>
                                         <q-item-label caption lines="2">
-                                            {{ feature.description }}
+                                            {{ $t(`pages.about.featuresList.${index}.description`) }}
                                         </q-item-label>
                                     </q-item-section>
                                 </q-item>
@@ -142,17 +144,17 @@
                     <q-card class="info-card" flat bordered>
                         <q-card-section>
                             <div class="text-h5 q-mb-md text-weight-medium">
-                                📝 Дополнительная информация
+                                {{ $t('pages.about.additionalInfo.title') }}
                             </div>
                             <div class="row q-col-gutter-md">
                                 <div class="col-12 col-sm-6">
                                     <div class="text-body1 q-mb-sm">
-                                        <strong>Сборка и деплой:</strong>
+                                        <strong>{{ $t('pages.about.additionalInfo.buildDeploy') }}</strong>
                                     </div>
                                     <ul class="q-pl-md">
-                                        <li>Разработка: <code>quasar dev</code></li>
-                                        <li>Сборка: <code>quasar build</code></li>
-                                        <li>Деплой на платформе Vercel</li>
+                                        <li>{{ $t('pages.about.additionalInfo.dev') }} <code>quasar dev</code></li>
+                                        <li>{{ $t('pages.about.additionalInfo.build') }} <code>quasar build</code></li>
+                                        <li>{{ $t('pages.about.additionalInfo.deploy') }}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -165,137 +167,100 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 // Технологии
-const technologies = ref([
+const technologies = computed(() => [
     {
-        name: 'Quasar Framework',
         icon: 'rocket_launch',
         color: 'primary',
-        description: 'Vue.js фреймворк с Material Design'
     },
     {
-        name: 'Vue 3',
         icon: 'view_in_ar',
         color: 'positive',
-        description: 'Композиционный API, TypeScript'
     },
     {
-        name: 'Pinia',
         icon: 'storage',
         color: 'accent',
-        description: 'State management для Vue 3'
     },
     {
-        name: 'Vue Router',
         icon: 'signpost',
         color: 'info',
-        description: 'Клиентская маршрутизация'
     },
     {
-        name: 'TypeScript',
         icon: 'code',
         color: 'secondary',
-        description: 'Статическая типизация'
     },
     {
-        name: 'Vue I18n',
         icon: 'translate',
         color: 'warning',
-        description: 'Мультиязычная поддержка'
     }
 ]);
 
 // Архитектура
-const architecture = ref([
+const architecture = computed(() => [
     {
-        title: 'Feature-Based Structure',
-        subtitle: 'Модульная организация кода',
         icon: 'widgets',
         color: 'primary',
-        description: 'Проект организован по функциональным модулям (features) для лучшей масштабируемости и переиспользования кода.',
         tags: ['users', 'auth', 'scalable']
     },
     {
-        title: 'Shared Layer',
-        subtitle: 'Общие компоненты и утилиты',
         icon: 'share',
         color: 'secondary',
-        description: 'Централизованное хранение общих компонентов, типов, констант и хранилищ для обеспечения консистентности.',
         tags: ['components', 'types', 'stores']
     },
     {
-        title: 'Internationalization',
-        subtitle: 'Поддержка 3 языков',
         icon: 'language',
         color: 'accent',
-        description: 'Полная поддержка английского, русского и испанского языков с системой плагинов Quasar.',
         tags: ['i18n', 'en-US', 'ru-RU', 'es-ES']
     },
     {
-        title: 'Theme System',
-        subtitle: 'Светлая и тёмная темы',
         icon: 'palette',
         color: 'positive',
-        description: 'Гибкая система тем с кастомными цветами для обоих режимов отображения.',
         tags: ['light', 'dark']
     }
 ]);
 
 // Статистика
-const stats = ref([
+const stats = computed(() => [
     {
-        label: 'Всего файлов',
-        value: '40',
         color: 'var(--q-primary)',
         progress: 1
     },
     {
-        label: 'Vue компоненты',
-        value: '7',
         color: 'var(--q-positive)',
         progress: 0.7
     },
     {
-        label: 'TypeScript файлы',
-        value: '20+',
         color: 'var(--q-secondary)',
         progress: 0.8
     },
     {
-        label: 'Языки поддержки',
-        value: '3',
         color: 'var(--q-accent)',
         progress: 0.6
     },
     {
-        label: 'Зависимости',
-        value: '20',
         color: 'var(--q-info)',
         progress: 1
     }
 ]);
 
 // Особенности
-const features = ref([
+const features = computed(() => [
     {
-        title: 'Адаптивный дизайн',
         icon: 'devices',
         color: 'primary',
-        description: 'Полная поддержка мобильных и десктопных устройств'
     },
     {
-        title: 'TypeScript First',
         icon: 'security',
         color: 'secondary',
-        description: 'Строгая типизация для надежности кода'
     },
     {
-        title: 'Quasar Components',
         icon: 'view_quilt',
         color: 'positive',
-        description: 'Использование готовых Material Design компонентов'
     }
 ]);
 </script>
