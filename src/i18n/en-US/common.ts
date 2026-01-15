@@ -11,24 +11,25 @@ export default {
   actions: 'Actions',
   login: "Login",
   logout: 'Logout',
+  add: 'Add',
   form_required_field: 'Required field',
-  rows_per_page:'Rows per page',
-  pagination_label_of:'of',
-  errors:{
-    error_loading:'Error loading data, please try again later',
-    error_create:'Error creating data, please try again later',
-    error_update:'Error updating data, please try again later',
-    error_delete:'Error deleting data, please try again later'
+  rows_per_page: 'Rows per page',
+  pagination_label_of: 'of',
+  errors: {
+    error_loading: 'Error loading data, please try again later',
+    error_create: 'Error creating data, please try again later',
+    error_update: 'Error updating data, please try again later',
+    error_delete: 'Error deleting data, please try again later'
   },
-  success:{
-    success_create:'Successfully created',
-    success_update:'Successfully updated',
-    success_delete:'Successfully deleted'
+  success: {
+    success_create: 'Successfully created',
+    success_update: 'Successfully updated',
+    success_delete: 'Successfully deleted'
   },
-  name:'Name',
-  adress:'Adress',
-  date:'Date',
-  status:'Status',
+  name: 'Name',
+  adress: 'Adress',
+  date: 'Date',
+  status: 'Status',
   days: {
     sunday: 'Sunday',
     monday: 'Monday',
@@ -49,4 +50,9 @@ export default {
   days_plural: 'days',
   days_plural_short: 'd.',
   data_refreshed: 'Data refreshed',
+  validation: {
+    required: 'This field is required',
+    minAge: 'Age must be at least 0',
+    invalidEmail: 'Please enter a valid email address',
+  },
 } as const

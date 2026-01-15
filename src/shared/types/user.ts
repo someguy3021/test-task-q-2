@@ -1,0 +1,13 @@
+export interface User {
+  id: number;
+  firstName: string;
+  lastName: string;
+  age: number;
+  email: string;
+  photo?: string | null; // Base64 string or URL
+}
+
+export interface SortOption {
+  field: keyof Omit<User, 'id' | 'photo'>;
+  direction: 'asc' | 'desc';
+}

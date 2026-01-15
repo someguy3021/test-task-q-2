@@ -11,6 +11,7 @@ export default {
   actions: 'Acciones',
   login: "Iniciar sesión",
   logout: 'Cerrar sesión',
+  add: 'Agregar',
   form_required_field: 'Campo obligatorio',
   rows_per_page: 'Filas por página',
   pagination_label_of: 'de',
@@ -20,10 +21,10 @@ export default {
     error_update: 'Error al actualizar datos, por favor intente más tarde',
     error_delete: 'Error al eliminar datos, por favor intente más tarde'
   },
-  success:{
-    success_create:'Creado correctamente',
-    success_update:'Actualizado correctamente',
-    success_delete:'Eliminado correctamente'
+  success: {
+    success_create: 'Creado correctamente',
+    success_update: 'Actualizado correctamente',
+    success_delete: 'Eliminado correctamente'
   },
   name: 'Nombre',
   adress: 'Dirección',
@@ -49,4 +50,9 @@ export default {
   days_plural: 'días',
   days_plural_short: 'd.',
   data_refreshed: 'Datos actualizados',
+  validation: {
+    required: 'Este campo es obligatorio',
+    minAge: 'La edad debe ser al menos 0',
+    invalidEmail: 'Por favor ingrese un correo electrónico válido',
+  },
 } as const

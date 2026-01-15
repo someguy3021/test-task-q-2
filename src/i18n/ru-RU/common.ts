@@ -11,24 +11,25 @@ export default {
   actions: 'Действия',
   login: "Войти",
   logout: 'Выйти',
+  add: 'Добавить',
   form_required_field: 'Обязательное поле',
-  rows_per_page:'Кол-во на странице',
-  pagination_label_of:'из',
-  errors:{
-    error_loading:'Ошибка загрузки данных, пожалуйста, попробуйте позже',
-    error_create:'Ошибка создания данных, пожалуйста, попробуйте позже',
-    error_update:'Ошибка обновления данных, пожалуйста, попробуйте позже',
-    error_delete:'Ошибка удаления данных, пожалуйста, попробуйте позже'
+  rows_per_page: 'Кол-во на странице',
+  pagination_label_of: 'из',
+  errors: {
+    error_loading: 'Ошибка загрузки данных, пожалуйста, попробуйте позже',
+    error_create: 'Ошибка создания данных, пожалуйста, попробуйте позже',
+    error_update: 'Ошибка обновления данных, пожалуйста, попробуйте позже',
+    error_delete: 'Ошибка удаления данных, пожалуйста, попробуйте позже'
   },
-  success:{
-    success_create:'Успешно создано',
-    success_update:'Успешно обновлено',
-    success_delete:'Успешно удалено'
+  success: {
+    success_create: 'Успешно создано',
+    success_update: 'Успешно обновлено',
+    success_delete: 'Успешно удалено'
   },
-  name:'Имя',
-  adress:'Адрес',
-  date:'Дата',
-  status:'Статус',
+  name: 'Имя',
+  adress: 'Адрес',
+  date: 'Дата',
+  status: 'Статус',
   days: {
     sunday: 'Воскресенье',
     monday: 'Понедельник',
@@ -49,4 +50,9 @@ export default {
   days_plural: 'дней',
   days_plural_short: 'дн.',
   data_refreshed: 'Данные обновлены',
+  validation: {
+    required: 'Это поле обязательно',
+    minAge: 'Возраст должен быть не менее 0',
+    invalidEmail: 'Пожалуйста, введите корректный email адрес',
+  },
 } as const

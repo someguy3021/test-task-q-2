@@ -14,6 +14,7 @@ export default {
     Portfolio: 'Portafolio',
     Inbox: 'Buzón',
     Home: 'Inicio',
+    UsersManagement: 'Usuarios',
     Settings: {
       title: 'Configuración de interfaz',
       showBottomMenu: 'Mostrar menú inferior',

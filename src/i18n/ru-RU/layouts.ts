@@ -13,6 +13,7 @@ export default {
     Portfolio: 'Портфолио',
     Inbox: 'Почта',
     Home: 'Главная',
+    UsersManagement: 'Пользователи',
     Settings: {
       title: 'Настройки интерфейса',
       showBottomMenu: 'Показывать нижнее меню',

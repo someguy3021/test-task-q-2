@@ -284,6 +284,11 @@ const getRouteIcon = (routeName: string): string => {
 
 const sidebarLinks = computed((): NavLink[] => [
   {
+    title: t('layouts.main_layout.UsersManagement'),
+    icon: 'people',
+    linkByName: 'users'
+  },
+  {
     title: t('layouts.main_layout.OrdersPage'),
     icon: 'shopping_cart',
     linkByName: 'orders'

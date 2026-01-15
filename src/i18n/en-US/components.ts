@@ -5,7 +5,12 @@ export default {
     settings: 'Settings',
     logout: 'Logout'
   },
-  AppLanguageSwitch:{
-    change_language:'Change language'
-  }
+  AppLanguageSwitch: {
+    change_language: 'Change language'
+  },
+  users: {
+    uploadPhoto: 'Upload photo',
+    age: '{age} years old',
+    minor: 'Minor',
+  },
 } as const

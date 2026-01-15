@@ -14,6 +14,7 @@ export default {
     Portfolio: 'Portfolio',
     Inbox: 'Inbox',
     Home: 'Home',
+    UsersManagement: 'Users',
     Settings: {
       title: 'Interface Settings',
       showBottomMenu: 'Show bottom menu',
