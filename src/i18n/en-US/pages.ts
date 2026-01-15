@@ -18,6 +18,7 @@ export default {
     lastName: 'Last Name',
     age: 'Age',
     email: 'Email',
+    filtersAndSort: 'Filters',
   },
   AboutThisProjectPage: {
     title: 'About Test Task Completion',

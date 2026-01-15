@@ -18,6 +18,7 @@ export default {
     lastName: 'Apellido',
     age: 'Edad',
     email: 'Correo electrónico',
+    filtersAndSort: 'Filters',
   },
   AboutThisProjectPage: {
     title: 'Acerca de la finalización de la tarea de prueba',

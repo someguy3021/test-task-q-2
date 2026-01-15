@@ -3,6 +3,7 @@ export default {
   loading: 'Loading...',
   save: 'Save',
   cancel: 'Cancel',
+  close: 'Close',
   delete: 'Delete',
   edit: 'Edit',
   search: 'Search',

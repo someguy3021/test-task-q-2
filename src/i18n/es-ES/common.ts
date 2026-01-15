@@ -3,6 +3,7 @@ export default {
   loading: 'Cargando...',
   save: 'Guardar',
   cancel: 'Cancelar',
+  close: 'Cerca',
   delete: 'Eliminar',
   edit: 'Editar',
   search: 'Buscar',

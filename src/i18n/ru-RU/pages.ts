@@ -18,6 +18,7 @@ export default {
     lastName: 'Фамилия',
     age: 'Возраст',
     email: 'Email',
+    filtersAndSort: 'Фильтры',
   },
   AboutThisProjectPage: {
     title: 'О выполнении тестового задания',

@@ -114,51 +114,24 @@
         <div v-else class="mobile-view">
             <!-- Search Input for Mobile -->
             <q-card class="q-mb-md full-width">
-                <q-card-section class="flex justify-between">
-                    <div class="row items-center q-col-gutter-lg">
-                        <!-- Age Filter -->
-                        <div class="col-12 col-sm-auto">
-                            <q-toggle v-model="usersStore.filterAdultsOnly" :label="$t('pages.UsersPage.filterAdults')"
-                                color="primary" />
-                        </div>
-
-                        <!-- Sort Controls -->
-                        <div class="col-12 col-sm">
-                            <div class="row items-center">
-                                <div class="col-auto">
-                                    <span class="text-body1">{{ $t('pages.UsersPage.sortBy') }}:</span>
-                                </div>
-
-                                <div class="col-auto">
-                                    <q-btn-toggle v-model="usersStore.sortOption.field" :options="sortFieldOptions"
-                                        toggle-color="primary" @update:model-value="handleSortFieldChange" dense />
-                                </div>
-
-                                <div class="col-auto">
-                                    <q-btn round
-                                        :icon="usersStore.sortOption.direction === 'asc' ? 'arrow_upward' : 'arrow_downward'"
-                                        :color="usersStore.sortOption.direction === 'asc' ? 'primary' : 'secondary'"
-                                        @click="usersStore.toggleSortDirection()">
-                                        <q-tooltip class="bg-primary">
-                                            {{ $t('pages.UsersPage.toggleSortDirection') }}
-                                        </q-tooltip>
-                                    </q-btn>
-                                </div>
-                            </div>
-                        </div>
+                <q-card-section class="row">
+                    <div class="col-6">
+                        <q-btn icon="filter_list" color="primary" :label="$t('pages.UsersPage.filtersAndSort')"
+                            @click="showFiltersDialog = true"></q-btn>
                     </div>
-                    <q-btn>Открыть фильтры</q-btn>
-                    <q-input borderless dense debounce="300" v-model="searchFilter" :placeholder="$t('common.search')"
-                        class="search-input" clearable>
-                        <template v-slot:append>
-                            <q-icon name="search" />
-                        </template>
-                    </q-input>
+                    <div class="col-6">
+                        <q-input borderless dense debounce="300" v-model="searchFilter"
+                            :placeholder="$t('common.search')" class="search-input" clearable>
+                            <template v-slot:append>
+                                <q-icon name="search" />
+                            </template>
+                        </q-input>
+                    </div>
                 </q-card-section>
             </q-card>
 
             <q-virtual-scroll v-if="filteredUsers.length > 0" :items="filteredUsers" :virtual-scroll-item-size="200"
-                style="max-height: 300px; overflow-x: hidden">
+                style="max-height: 53vh; overflow-x: hidden">
                 <template v-slot="{ item: user, index }">
                     <UserCard :key="user.id" :user="user" @photo-uploaded="handlePhotoUpload" class="q-mb-sm" />
                 </template>
@@ -182,6 +155,51 @@
             <UserForm :model-value="newUser" :title="$t('pages.UsersPage.addUser')" :submit-label="$t('common.add')"
                 @submit="handleAddUser" @cancel="showAddUserDialog = false" @close="showAddUserDialog = false" />
         </q-dialog>
+
+        <q-dialog v-model="showFiltersDialog">
+            <q-card style="width: 300px">
+                <q-card-section>
+                    <div class="text-h6">{{ $t('pages.UsersPage.filtersAndSort') }}</div>
+                </q-card-section>
+
+                <q-card-section class="q-pt-none">
+                    <!-- Age Filter -->
+                    <div class="q-mb-md">
+                        <q-toggle v-model="usersStore.filterAdultsOnly" :label="$t('pages.UsersPage.filterAdults')"
+                            color="primary" dense />
+                    </div>
+
+                    <!-- Sort Controls -->
+                    <div class="q-mb-sm">
+                        <div class="text-body1 q-mb-xs">{{ $t('pages.UsersPage.sortBy') }}:</div>
+                        <div class="row items-center q-col-gutter-sm">
+                            <div class="col-12">
+                                <q-btn-toggle v-model="usersStore.sortOption.field" :options="sortFieldOptions"
+                                    toggle-color="primary" @update:model-value="handleSortFieldChange" spread dense />
+                            </div>
+
+                            <div class="col-12 text-center q-mt-sm">
+                                <q-btn round
+                                    :icon="usersStore.sortOption.direction === 'asc' ? 'arrow_upward' : 'arrow_downward'"
+                                    :color="usersStore.sortOption.direction === 'asc' ? 'primary' : 'secondary'"
+                                    @click="usersStore.toggleSortDirection()">
+                                    <q-tooltip>
+                                        {{ $t('pages.UsersPage.toggleSortDirection') }}
+                                    </q-tooltip>
+                                </q-btn>
+                                <div class="text-caption text-grey-7 q-mt-xs">
+                                    {{ usersStore.sortOption.direction === 'asc' ? 'По возрастанию' : 'По убыванию' }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </q-card-section>
+
+                <q-card-actions align="right">
+                    <q-btn flat :label="$t('common.close')" color="primary" v-close-popup />
+                </q-card-actions>
+            </q-card>
+        </q-dialog>
     </q-page>
 </template>
 
@@ -197,6 +215,7 @@ import type { QTableProps } from 'quasar';
 const { t } = useI18n();
 const usersStore = useUsersStore();
 const showAddUserDialog = ref(false);
+const showFiltersDialog = ref(false);
 const searchFilter = ref('');
 
 const newUser = {

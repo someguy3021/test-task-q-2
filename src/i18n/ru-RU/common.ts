@@ -3,6 +3,7 @@ export default {
   loading: 'Загрузка...',
   save: 'Сохранить',
   cancel: 'Отмена',
+  close: 'Закрыть',
   delete: 'Удалить',
   edit: 'Редактировать',
   search: 'Поиск',
