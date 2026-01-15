@@ -12,6 +12,7 @@ export default {
   login: "Iniciar sesión",
   logout: 'Cerrar sesión',
   add: 'Agregar',
+  optional: 'Opcional',
   form_required_field: 'Campo obligatorio',
   rows_per_page: 'Filas por página',
   pagination_label_of: 'de',

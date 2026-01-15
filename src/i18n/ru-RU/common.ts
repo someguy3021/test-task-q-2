@@ -12,6 +12,7 @@ export default {
   login: "Войти",
   logout: 'Выйти',
   add: 'Добавить',
+  optional: 'Опционально',
   form_required_field: 'Обязательное поле',
   rows_per_page: 'Кол-во на странице',
   pagination_label_of: 'из',

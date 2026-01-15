@@ -12,6 +12,7 @@ export default {
   login: "Login",
   logout: 'Logout',
   add: 'Add',
+  optional: 'Optional',
   form_required_field: 'Required field',
   rows_per_page: 'Rows per page',
   pagination_label_of: 'of',
