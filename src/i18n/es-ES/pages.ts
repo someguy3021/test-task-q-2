@@ -1,5 +1,5 @@
 export default {
-  users: {
+  UsersPage: {
     title: 'Gestión de usuarios',
     subtitle: 'Mostrando {filtered} de {count} usuarios',
     addUser: 'Agregar usuario',
@@ -19,7 +19,7 @@ export default {
     age: 'Edad',
     email: 'Correo electrónico',
   },
-  about: {
+  AboutThisProjectPage: {
     title: 'Sobre la tarea de prueba',
     subtitle: 'Descripción general de la arquitectura y soluciones técnicas del proyecto',
     techStack: {

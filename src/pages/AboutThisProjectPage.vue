@@ -5,10 +5,10 @@
             <div class="row q-mb-xl">
                 <div class="col-12">
                     <h1 class="text-h3 text-weight-bold q-mb-md">
-                        {{ $t('pages.about.title') }}
+                        {{ $t('pages.AboutThisProjectPage.title') }}
                     </h1>
                     <div class="text-subtitle1 ">
-                        {{ $t('pages.about.subtitle') }}
+                        {{ $t('pages.AboutThisProjectPage.subtitle') }}
                     </div>
                 </div>
             </div>
@@ -20,9 +20,9 @@
                     <!-- Технологический стек -->
                     <q-card class="tech-card q-mb-lg" flat bordered>
                         <q-card-section class="bg-primary text-white">
-                            <div class="text-h5 q-mb-sm">{{ $t('pages.about.techStack.title') }}</div>
+                            <div class="text-h5 q-mb-sm">{{ $t('pages.AboutThisProjectPage.techStack.title') }}</div>
                             <div class="text-caption opacity-70">
-                                {{ $t('pages.about.techStack.subtitle') }}
+                                {{ $t('pages.AboutThisProjectPage.techStack.subtitle') }}
                             </div>
                         </q-card-section>
 
@@ -35,10 +35,10 @@
                                         </q-item-section>
                                         <q-item-section>
                                             <q-item-label class="text-weight-medium">
-                                                {{ $t(`pages.about.technologies.${index}.name`) }}
+                                                {{ $t(`pages.AboutThisProjectPage.technologies.${index}.name`) }}
                                             </q-item-label>
                                             <q-item-label caption class="">
-                                                {{ $t(`pages.about.technologies.${index}.description`) }}
+                                                {{ $t(`pages.AboutThisProjectPage.technologies.${index}.description`) }}
                                             </q-item-label>
                                         </q-item-section>
                                     </q-item>
@@ -50,20 +50,20 @@
                     <!-- Архитектура -->
                     <q-card class="arch-card q-mb-lg" flat bordered>
                         <q-card-section class="bg-accent text-white">
-                            <div class="text-h5 q-mb-sm">{{ $t('pages.about.architecture.title') }}</div>
+                            <div class="text-h5 q-mb-sm">{{ $t('pages.AboutThisProjectPage.architecture.title') }}</div>
                             <div class="text-caption opacity-70">
-                                {{ $t('pages.about.architecture.subtitle') }}
+                                {{ $t('pages.AboutThisProjectPage.architecture.subtitle') }}
                             </div>
                         </q-card-section>
 
                         <q-card-section>
                             <q-timeline color="secondary" class="q-mt-md">
                                 <q-timeline-entry v-for="(item, index) in architecture" :key="index"
-                                    :title="$t(`pages.about.architectureItems.${index}.title`)"
-                                    :subtitle="$t(`pages.about.architectureItems.${index}.subtitle`)" :icon="item.icon"
-                                    :color="item.color">
+                                    :title="$t(`pages.AboutThisProjectPage.architectureItems.${index}.title`)"
+                                    :subtitle="$t(`pages.AboutThisProjectPage.architectureItems.${index}.subtitle`)"
+                                    :icon="item.icon" :color="item.color">
                                     <div class="text-body2 q-mt-sm">
-                                        {{ $t(`pages.about.architectureItems.${index}.description`) }}
+                                        {{ $t(`pages.AboutThisProjectPage.architectureItems.${index}.description`) }}
                                     </div>
                                     <q-chip v-for="(tag, tagIndex) in item.tags" :key="tagIndex" size="sm"
                                         :color="item.color" text-color="white" class="q-mt-xs q-mr-xs">
@@ -80,9 +80,9 @@
                     <!-- Статистика проекта -->
                     <q-card class="stats-card q-mb-lg" flat bordered>
                         <q-card-section class="bg-secondary text-white">
-                            <div class="text-h5 q-mb-sm">{{ $t('pages.about.statistics.title') }}</div>
+                            <div class="text-h5 q-mb-sm">{{ $t('pages.AboutThisProjectPage.statistics.title') }}</div>
                             <div class="text-caption opacity-70">
-                                {{ $t('pages.about.statistics.subtitle') }}
+                                {{ $t('pages.AboutThisProjectPage.statistics.subtitle') }}
                             </div>
                         </q-card-section>
 
@@ -92,7 +92,7 @@
                                     <div class="row items-center justify-between">
                                         <div class="col">
                                             <div class="text-body2 ">
-                                                {{ $t(`pages.about.stats.${index}.label`) }}
+                                                {{ $t(`pages.AboutThisProjectPage.stats.${index}.label`) }}
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -111,9 +111,9 @@
                     <!-- Особенности реализации -->
                     <q-card class="features-card" flat bordered>
                         <q-card-section class="bg-positive text-white">
-                            <div class="text-h5 q-mb-sm">{{ $t('pages.about.features.title') }}</div>
+                            <div class="text-h5 q-mb-sm">{{ $t('pages.AboutThisProjectPage.features.title') }}</div>
                             <div class="text-caption opacity-70">
-                                {{ $t('pages.about.features.subtitle') }}
+                                {{ $t('pages.AboutThisProjectPage.features.subtitle') }}
                             </div>
                         </q-card-section>
 
@@ -125,10 +125,10 @@
                                     </q-item-section>
                                     <q-item-section>
                                         <q-item-label class="text-weight-medium">
-                                            {{ $t(`pages.about.featuresList.${index}.title`) }}
+                                            {{ $t(`pages.AboutThisProjectPage.featuresList.${index}.title`) }}
                                         </q-item-label>
                                         <q-item-label caption lines="2">
-                                            {{ $t(`pages.about.featuresList.${index}.description`) }}
+                                            {{ $t(`pages.AboutThisProjectPage.featuresList.${index}.description`) }}
                                         </q-item-label>
                                     </q-item-section>
                                 </q-item>
@@ -144,17 +144,20 @@
                     <q-card class="info-card" flat bordered>
                         <q-card-section>
                             <div class="text-h5 q-mb-md text-weight-medium">
-                                {{ $t('pages.about.additionalInfo.title') }}
+                                {{ $t('pages.AboutThisProjectPage.additionalInfo.title') }}
                             </div>
                             <div class="row q-col-gutter-md">
                                 <div class="col-12 col-sm-6">
                                     <div class="text-body1 q-mb-sm">
-                                        <strong>{{ $t('pages.about.additionalInfo.buildDeploy') }}</strong>
+                                        <strong>{{ $t('pages.AboutThisProjectPage.additionalInfo.buildDeploy')
+                                            }}</strong>
                                     </div>
                                     <ul class="q-pl-md">
-                                        <li>{{ $t('pages.about.additionalInfo.dev') }} <code>quasar dev</code></li>
-                                        <li>{{ $t('pages.about.additionalInfo.build') }} <code>quasar build</code></li>
-                                        <li>{{ $t('pages.about.additionalInfo.deploy') }}</li>
+                                        <li>{{ $t('pages.AboutThisProjectPage.additionalInfo.dev') }}
+                                            <code>quasar dev</code></li>
+                                        <li>{{ $t('pages.AboutThisProjectPage.additionalInfo.build') }}
+                                            <code>quasar build</code></li>
+                                        <li>{{ $t('pages.AboutThisProjectPage.additionalInfo.deploy') }}</li>
                                     </ul>
                                 </div>
                             </div>
