@@ -1,7 +1,7 @@
 <template>
     <q-card class="user-card q-mb-md" bordered>
         <q-card-section class="row items-center">
-            <div class="col-12 col-md-3 q-pr-md">
+            <div class="col-3 q-pr-md">
                 <!-- User Photo -->
                 <div class="user-photo-container q-mb-sm">
                     <q-avatar v-if="user.photo" size="60px" class="user-avatar">
@@ -23,7 +23,7 @@
                 <input ref="fileInput" type="file" accept="image/*" class="hidden" @change="handleFileUpload" />
             </div>
 
-            <div class="col-12 col-md-9">
+            <div class="col-9">
                 <!-- User Info -->
                 <div class="text-h6 q-mb-xs">
                     {{ user.firstName }} {{ user.lastName }}
@@ -100,29 +100,23 @@ const handleFileUpload = (event: Event) => {
 
     &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 4px var(--q-pageUtilityContrast);
     }
-}
 
-.user-photo-container {
-    position: relative;
-    display: inline-block;
-}
+    .user-photo-container {
+        position: relative;
+        display: inline-block;
+    }
 
-.upload-btn {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    transform: translate(25%, 25%);
+    .upload-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translate(25%, 25%);
+    }
 }
 
 .hidden {
     display: none;
-}
-
-@media (max-width: $breakpoint-sm) {
-    .user-card {
-        padding: 12px;
-    }
 }
 </style>

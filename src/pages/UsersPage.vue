@@ -174,10 +174,4 @@ const handleAddUser = () => {
         grid-template-columns: 1fr;
     }
 }
-
-@media (max-width: $breakpoint-sm) {
-    .q-pa-md {
-        padding: 16px;
-    }
-}
 </style>
