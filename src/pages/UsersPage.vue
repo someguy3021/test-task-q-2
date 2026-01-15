@@ -93,7 +93,7 @@
 
                 <template v-slot:item="props">
                     <div class="q-pa-xs col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <UserCard :user="props.row" @photo-uploaded="handlePhotoUpload" class="user-card-item" />
+                        <UserCard :user="props.row" @photo-uploaded="handlePhotoUpload" />
                     </div>
                 </template>
 
@@ -131,7 +131,7 @@
             </q-card>
 
             <q-virtual-scroll v-if="filteredUsers.length > 0" :items="filteredUsers" :virtual-scroll-item-size="200"
-                style="max-height: 53vh; overflow-x: hidden">
+                class="virtual-scroll-mobile">
                 <template v-slot="{ item: user, index }">
                     <UserCard :key="user.id" :user="user" @photo-uploaded="handlePhotoUpload" class="q-mb-sm" />
                 </template>
@@ -283,13 +283,30 @@ const handleAddUser = (userData: Omit<User, 'id'>) => {
         padding: 0;
         border-bottom: none;
     }
-
-    .search-input {
-        width: 200px;
-    }
 }
 
-.user-card-item {
-    height: 100%;
+// Для quasar virtual scroll нужно задавать высоту строго, так что задаю по устройствам
+.virtual-scroll-mobile {
+    overflow-x: hidden;
+
+    @media (min-height: 500px) {
+        max-height: 53vh;
+    }
+
+    @media (min-height: 700px) {
+        max-height: 55vh;
+    }
+
+    @media (min-height: 800px) {
+        max-height: 60vh;
+    }
+
+    @media (min-height: 850px) {
+        max-height: 63vh;
+    }
+
+    @media (min-height: 900px) {
+        max-height: 65vh;
+    }
 }
 </style>

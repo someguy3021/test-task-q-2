@@ -343,7 +343,7 @@ const features = computed(() => [
     transition: all 0.3s ease;
 
     &:hover {
-        background: var(--q-sliderEnds);
+        background: var(--q-pageUtilityContrastLow);
     }
 }
 
