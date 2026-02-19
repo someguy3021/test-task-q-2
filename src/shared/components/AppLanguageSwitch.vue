@@ -9,8 +9,9 @@
 
 <script lang="ts">
 import { useI18n } from "vue-i18n";
-import { onMounted, computed, onBeforeUnmount } from "vue";
+import { computed } from "vue";
 import { STORAGE_KEYS } from "src/shared/constants/storage-keys";
+import { useLocalStorage } from "src/shared/composables/use-local-storage";
 
 export default {
   setup() {
@@ -23,31 +24,18 @@ export default {
       { value: "es-ES", label: "Español" },
     ];
 
+    const { value: savedLocale } = useLocalStorage<string>(
+      STORAGE_KEYS.USER_LOCALE,
+      locale.value
+    );
+
     // Sync currentLocale with global locale using computed property
     const currentLocale = computed({
       get: () => locale.value,
       set: (value) => {
         locale.value = value;
-        localStorage.setItem(STORAGE_KEYS.USER_LOCALE, value);
+        savedLocale.value = value;
       }
-    });
-
-    // Listen for locale changes in localStorage from other tabs/windows
-    const handleStorageChange = (event: StorageEvent) => {
-      if (event.key === STORAGE_KEYS.USER_LOCALE && event.newValue) {
-        // Only update if the change came from another tab/window
-        if (event.newValue !== locale.value) {
-          locale.value = event.newValue;
-        }
-      }
-    };
-
-    onMounted(() => {
-      window.addEventListener('storage', handleStorageChange);
-    });
-
-    onBeforeUnmount(() => {
-      window.removeEventListener('storage', handleStorageChange);
     });
 
     return {

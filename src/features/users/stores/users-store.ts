@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import type { User, SortOption } from 'src/shared/types';
+import { useUserFilters } from 'src/shared/composables/user-filters';
+import { useUserSorting } from 'src/shared/composables/user-sorting';
 
 export const useUsersStore = defineStore('users', () => {
   // Initial mock data
@@ -33,32 +35,15 @@ export const useUsersStore = defineStore('users', () => {
   const filterAdultsOnly = ref(false);
   const sortOption = ref<SortOption>({ field: 'firstName', direction: 'asc' });
 
-  // Computed: filtered users
-  const filteredUsers = computed(() => {
-    let filtered = [...users.value];
+  // Using composable for filtering
+  const { filteredUsers } = useUserFilters(users, filterAdultsOnly);
 
-    // Apply age filter
-    if (filterAdultsOnly.value) {
-      filtered = filtered.filter(user => user.age >= 18);
-    }
-
-    return filtered;
-  });
+  // Using composable for sorting
+  const { sortedUsers } = useUserSorting(filteredUsers.value, sortOption.value.field, sortOption.value.direction);
 
   // Computed: sorted and filtered users
   const sortedAndFilteredUsers = computed(() => {
-    const filtered = [...filteredUsers.value];
-
-    return filtered.sort((a, b) => {
-      const aValue = a[sortOption.value.field];
-      const bValue = b[sortOption.value.field];
-
-      if (sortOption.value.direction === 'asc') {
-        return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
-      } else {
-        return aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
-      }
-    });
+    return sortedUsers.value;
   });
 
   // Actions
